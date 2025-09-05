@@ -14,7 +14,7 @@
     "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-date=2025-09-05"
   },
   "dependencies": {
-    "framer-motion": "^10.16.0",
+    "framer-motion": "^12.23.12",
     "lucide-react": "^0.292.0",
     "next": "^15.5.2",
     "react": "^19.1.1",
