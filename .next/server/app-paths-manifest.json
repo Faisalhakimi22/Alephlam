@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/book-course/page": "app/book-course/page.js",
+  "/alephlam-kids/page": "app/alephlam-kids/page.js",
+  "/video-courses/page": "app/video-courses/page.js"
+}

@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-secondary hover:bg-secondary-light text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  .btn-large {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100;
+  }
+
+  .card-hover {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 hover:border-primary/20;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Custom slider styles */
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 bg-primary rounded-full cursor-pointer;
+  }
+
+  .slider::-moz-range-thumb {
+    @apply appearance-none w-4 h-4 bg-primary rounded-full cursor-pointer border-0;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-gray-50 to-white;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/80 border border-white/20;
+  }
+
+  /* Professional Glass Cards */
+    .glass-card {
+      @apply backdrop-blur-xl bg-white/70 border border-white/20 rounded-3xl shadow-2xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/75 hover:border-primary/20 relative overflow-hidden;
+    }
+
+  .glass-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-3xl;
+  }
+
+  .glass-card-dark {
+    @apply backdrop-blur-xl bg-gray-900/70 border border-gray-700/30 rounded-3xl shadow-2xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:bg-gray-900/80 relative overflow-hidden;
+  }
+
+  .glass-card-dark::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-3xl;
+  }
+
+  .glass-card-primary {
+    @apply backdrop-blur-xl bg-primary/10 border border-primary/20 rounded-3xl shadow-2xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:bg-primary/15 relative overflow-hidden;
+  }
+
+  .glass-card-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none rounded-3xl;
+  }
+
+    .glass-card-gradient {
+      @apply backdrop-blur-xl bg-gradient-to-br from-secondary/90 to-secondary border border-white/30 rounded-3xl shadow-2xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:from-secondary hover:to-secondary-light hover:border-primary/30 relative overflow-hidden;
+    }
+
+  .glass-card-gradient::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none rounded-3xl;
+  }
+
+    .glass-card-interactive {
+      @apply backdrop-blur-xl bg-white/75 border border-white/25 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.03] hover:bg-white/80 hover:border-primary/20 cursor-pointer relative overflow-hidden;
+    }
+
+  .glass-card-interactive::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/15 to-transparent pointer-events-none rounded-3xl;
+  }
+
+  .glass-card-interactive::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-3xl;
+  }
+
+  /* Enhanced Card Hover Effects */
+    .card-hover {
+      @apply backdrop-blur-xl bg-white/80 border border-white/20 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:bg-white/85 hover:border-primary/20 relative overflow-hidden;
+    }
+
+  .card-hover::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-3xl;
+  }
+
+  .card-hover::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-3xl;
+  }
+
+  /* Professional Grid Layouts */
+  .grid-cards {
+    @apply grid gap-8 md:gap-10 lg:gap-12;
+  }
+
+  .grid-cards-2 {
+    @apply grid-cards md:grid-cols-2;
+  }
+
+  .grid-cards-3 {
+    @apply grid-cards md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .grid-cards-4 {
+    @apply grid-cards md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  /* Improved Course Card Layouts */
+  .course-grid-featured {
+    @apply grid gap-8 md:gap-10 lg:gap-12 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .course-grid-compact {
+    @apply grid gap-8 md:gap-10 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  /* Enhanced Section Spacing */
+  .section-padding-lg {
+    @apply py-24 px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card Content Improvements */
+  .card-content-spacing {
+    @apply space-y-6;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-primary to-primary-dark;
+  }
+
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-br from-secondary to-secondary-dark;
+  }
+
+  /* Glass Background Utilities */
+  .bg-glass {
+    @apply backdrop-blur-xl bg-white/80 border border-white/20;
+  }
+
+  .bg-glass-dark {
+    @apply backdrop-blur-xl bg-gray-900/70 border border-gray-700/30;
+  }
+
+  .bg-glass-primary {
+    @apply backdrop-blur-xl bg-primary/10 border border-primary/20;
+  }
+
+  /* Advanced Shadow Utilities */
+  .shadow-glass {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .shadow-glass-lg {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Frosted Glass Effect */
+  .frosted-glass {
+    @apply backdrop-blur-2xl bg-white/60 border border-white/30 shadow-glass;
+  }
+}
