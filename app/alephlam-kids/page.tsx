@@ -149,22 +149,36 @@ const AlephLamKidsPage = () => {
             </p>
           </motion.div>
           
-          <div className="grid-cards-4">
-            {teachingMethods.map((method, index) => (
-              <motion.div
-                key={method.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-8 text-center group relative z-10"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <method.icon className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-secondary mb-4">{method.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{method.description}</p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {teachingMethods.map((method, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue',
+                'from-islamic-blue-dark to-islamic-gold-dark'
+              ]
+              const gradient = gradients[index % gradients.length]
+              
+              return (
+                <motion.div
+                  key={method.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="islamic-card p-6"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center`}>
+                      <method.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-secondary mb-2 font-amiri">{method.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{method.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -187,33 +201,46 @@ const AlephLamKidsPage = () => {
             </p>
           </motion.div>
           
-          <div className="grid-cards-3">
-            {ageGroups.map((group, index) => (
-              <motion.div
-                key={group.age}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-8 relative z-10"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <group.icon className="w-10 h-10 text-white" />
-                </div>
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-secondary mb-2">{group.age}</h3>
-                  <h4 className="text-lg font-semibold text-primary">{group.title}</h4>
-                </div>
-                <p className="text-gray-600 mb-6 text-center">{group.description}</p>
-                <ul className="space-y-3">
-                  {group.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {ageGroups.map((group, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue'
+              ]
+              const gradient = gradients[index % gradients.length]
+              
+              return (
+                <motion.div
+                  key={group.age}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="islamic-card p-6"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center`}>
+                      <group.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="mb-3">
+                        <h3 className="text-xl font-bold text-secondary font-amiri">{group.age}</h3>
+                        <h4 className="text-lg font-semibold text-islamic-gold">{group.title}</h4>
+                      </div>
+                      <p className="text-gray-600 mb-4 leading-relaxed">{group.description}</p>
+                      <div className="space-y-2">
+                        {group.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center text-sm text-gray-600">
+                            <CheckCircle className="w-3 h-3 text-islamic-gold mr-2 flex-shrink-0" />
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -236,54 +263,70 @@ const AlephLamKidsPage = () => {
             </p>
           </motion.div>
           
-          <div className="grid-cards-2">
-            {courses.map((course, index) => (
-              <motion.div
-                key={course.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card-interactive p-8 relative z-10"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mr-4 shadow-lg">
-                    <course.icon className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-primary">{course.price}</div>
-                    <div className="text-sm text-gray-500">{course.duration}</div>
-                  </div>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-secondary mb-3">{course.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{course.description}</p>
-                
-                <div className="flex items-center text-sm text-gray-500 mb-6">
-                  <Users className="w-4 h-4 mr-2" />
-                  <span>Age: {course.age}</span>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="font-semibold text-secondary mb-3">Course Features:</h4>
-                  <ul className="space-y-2">
-                    {course.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-3 h-3 text-primary mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <Link 
-                  href="/contact" 
-                  className="inline-flex items-center justify-center w-full px-6 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {courses.map((course, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue',
+                'from-islamic-blue-dark to-islamic-gold-dark'
+              ]
+              const gradient = gradients[index % gradients.length]
+              
+              return (
+                <motion.div
+                  key={course.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="islamic-card p-6"
                 >
-                  Enroll Now
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </motion.div>
-            ))}
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center`}>
+                      <course.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-2">
+                        <h3 className="text-xl font-bold text-secondary font-amiri">{course.title}</h3>
+                        <div className="text-right ml-4">
+                          <div className="bg-gradient-to-r from-islamic-gold to-islamic-blue text-white px-3 py-1 rounded-lg font-bold text-xs">
+                            {course.price}
+                          </div>
+                          <div className="text-xs text-gray-500 mt-1">{course.duration}</div>
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-600 mb-3 leading-relaxed">{course.description}</p>
+                      
+                      <div className="flex items-center text-sm text-gray-500 mb-3">
+                        <Users className="w-4 h-4 mr-2" />
+                        <span>Age: {course.age}</span>
+                      </div>
+                      
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Features:</h4>
+                        <div className="grid grid-cols-2 gap-1">
+                          {course.features.map((feature, featureIndex) => (
+                            <div key={featureIndex} className="flex items-center text-xs text-gray-600">
+                              <CheckCircle className="w-2 h-2 text-islamic-gold mr-2 flex-shrink-0" />
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <Link 
+                        href="/contact" 
+                        className="btn-primary text-sm py-2 px-4"
+                      >
+                        Enroll Now
+                        <ArrowRight className="ml-1 w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>

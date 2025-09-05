@@ -160,25 +160,39 @@ const BookCoursePage = () => {
           >
             Simple <span className="text-gradient">Enrollment Process</span>
           </motion.h2>
-          <div className="grid-cards-4">
-            {enrollmentSteps.map((step, index) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-8 text-center relative z-10"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <span className="text-white font-bold text-2xl">{step.step}</span>
-                </div>
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <step.icon className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-secondary mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {enrollmentSteps.map((step, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue',
+                'from-islamic-blue-dark to-islamic-gold-dark'
+              ]
+              const gradient = gradients[index % gradients.length]
+              
+              return (
+                <motion.div
+                  key={step.step}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="islamic-card p-6"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center`}>
+                      <step.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center mb-2">
+                        <span className="text-2xl font-bold text-islamic-gold mr-3">{step.step}</span>
+                        <h3 className="text-xl font-bold text-secondary font-amiri">{step.title}</h3>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -194,60 +208,81 @@ const BookCoursePage = () => {
           >
             Choose Your <span className="text-gradient">Course</span>
           </motion.h2>
-          <div className="grid-cards-2">
-            {courses.map((course, index) => (
-              <motion.div
-                key={course.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`glass-card-interactive p-8 cursor-pointer transition-all duration-300 relative z-10 ${
-                  selectedCourse === course.id ? 'ring-2 ring-primary shadow-xl' : ''
-                }`}
-                onClick={() => setSelectedCourse(course.id)}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-secondary">{course.title}</h3>
-                  <div className="text-primary font-bold text-lg">{course.price}</div>
-                </div>
-                
-                <p className="text-gray-600 mb-4">{course.description}</p>
-                
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Clock className="w-4 h-4 mr-2" />
-                    {course.duration}
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <Users className="w-4 h-4 mr-2" />
-                    {course.level}
-                  </div>
-                </div>
-                
-                <div className="mb-4">
-                  <h4 className="font-semibold text-secondary mb-2">Features:</h4>
-                  <ul className="space-y-1">
-                    {course.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <Star className="w-3 h-3 text-primary mr-2" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {courses.map((course, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue',
+                'from-islamic-blue-dark to-islamic-gold-dark'
+              ]
+              const gradient = gradients[index % gradients.length]
+              const icons = [BookOpen, Star, Video, Users, GraduationCap, CheckCircle]
+              const Icon = icons[index % icons.length]
+              
+              return (
+                <motion.div
+                  key={course.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className={`islamic-card p-6 cursor-pointer ${
+                    selectedCourse === course.id ? 'ring-2 ring-islamic-gold shadow-xl' : ''
+                  }`}
+                  onClick={() => setSelectedCourse(course.id)}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-2">
+                        <h3 className="text-xl font-bold text-secondary font-amiri">{course.title}</h3>
+                        <div className="bg-gradient-to-r from-islamic-gold to-islamic-blue text-white px-3 py-1 rounded-lg font-bold text-sm ml-4 flex-shrink-0">
+                          {course.price}
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-600 leading-relaxed mb-3">{course.description}</p>
+                      
+                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                        <div className="flex items-center">
+                          <Clock className="w-4 h-4 mr-1" />
+                          {course.duration}
+                        </div>
+                        <div className="flex items-center">
+                          <Users className="w-4 h-4 mr-1" />
+                          {course.level}
+                        </div>
+                      </div>
+                      
+                      <div className="mb-3">
+                        <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Features:</h4>
+                        <div className="grid grid-cols-2 gap-1">
+                          {course.features.slice(0, 4).map((feature, featureIndex) => (
+                            <div key={featureIndex} className="flex items-center text-xs text-gray-600">
+                              <Star className="w-2 h-2 text-islamic-gold fill-current mr-1" />
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
 
-                <div className="mb-4">
-                  <h4 className="font-semibold text-secondary mb-2">Available Schedules:</h4>
-                  <ul className="space-y-1">
-                    {course.schedule.map((time, index) => (
-                      <li key={index} className="text-sm text-gray-600">
-                        • {time}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
+                      <div>
+                        <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Schedules:</h4>
+                        <div className="space-y-1">
+                          {course.schedule.slice(0, 2).map((time, timeIndex) => (
+                            <div key={timeIndex} className="text-xs text-gray-600">
+                              • {time}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -170,22 +170,36 @@ const VideoCoursesPage = () => {
           >
             Why Choose <span className="text-gradient">Video Learning</span>
           </motion.h2>
-          <div className="grid-cards-4">
-            {learningFeatures.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-8 text-center relative z-10"
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <feature.icon className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-secondary mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {learningFeatures.map((feature, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue',
+                'from-islamic-blue-dark to-islamic-gold-dark'
+              ]
+              const gradient = gradients[index % gradients.length]
+              
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="islamic-card p-6"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center`}>
+                      <feature.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-secondary mb-2 font-amiri">{feature.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -231,103 +245,100 @@ const VideoCoursesPage = () => {
           >
             Our <span className="text-gradient">Video Courses</span>
           </motion.h2>
-          <div className="grid-cards-2">
-            {videoCourses.map((course, index) => (
-              <motion.div
-                key={course.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card-interactive p-8 h-full flex flex-col relative z-10"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-semibold text-secondary">{course.title}</h3>
-                  <div className="text-primary font-bold text-2xl">{course.price}</div>
-                </div>
-                
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed flex-grow">{course.description}</p>
-                
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="space-y-3">
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Clock className="w-4 h-4 mr-2" />
-                      <span className="font-medium">Duration:</span> {course.duration}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {videoCourses.map((course, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue',
+                'from-islamic-blue-dark to-islamic-gold-dark'
+              ]
+              const gradient = gradients[index % gradients.length]
+              const icons = [Video, Play, BookOpen, Star, Users, Award]
+              const Icon = icons[index % icons.length]
+              
+              return (
+                <motion.div
+                  key={course.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="islamic-card p-6"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center`}>
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Users className="w-4 h-4 mr-2" />
-                      <span className="font-medium">Level:</span> {course.level}
-                    </div>
-                    <div className="flex items-center text-sm text-gray-500">
-                      <Video className="w-4 h-4 mr-2" />
-                      <span className="font-medium">Total Hours:</span> {course.totalHours}
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-2">
+                        <h3 className="text-xl font-bold text-secondary font-amiri">{course.title}</h3>
+                        <div className="bg-gradient-to-r from-islamic-gold to-islamic-blue text-white px-3 py-1 rounded-lg font-bold text-sm ml-4 flex-shrink-0">
+                          {course.price}
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-600 leading-relaxed mb-3">{course.description}</p>
+                      
+                      <div className="grid grid-cols-3 gap-2 text-xs text-gray-500 mb-3">
+                        <div className="flex items-center">
+                          <Clock className="w-3 h-3 mr-1" />
+                          {course.totalHours}
+                        </div>
+                        <div className="flex items-center">
+                          <Users className="w-3 h-3 mr-1" />
+                          {course.level}
+                        </div>
+                        <div className="flex items-center">
+                          <Video className="w-3 h-3 mr-1" />
+                          Video
+                        </div>
+                      </div>
+                      
+                      <div className="mb-3">
+                        <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Features:</h4>
+                        <div className="grid grid-cols-2 gap-1">
+                          {course.features.slice(0, 4).map((feature: string, featureIndex: number) => (
+                            <div key={featureIndex} className="flex items-center text-xs text-gray-600">
+                              <Star className="w-2 h-2 text-islamic-gold fill-current mr-1" />
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-3">
+                        <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Benefits:</h4>
+                        <div className="grid grid-cols-1 gap-1">
+                          {course.benefits.slice(0, 2).map((benefit: string, benefitIndex: number) => (
+                            <div key={benefitIndex} className="flex items-center text-xs text-gray-600">
+                              <CheckCircle className="w-2 h-2 text-islamic-gold mr-1" />
+                              {benefit}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Content:</h4>
+                        <div className="grid grid-cols-1 gap-1">
+                          {course.content.slice(0, 2).map((item: string, contentIndex: number) => (
+                            <div key={contentIndex} className="flex items-center text-xs text-gray-600">
+                              <BookOpen className="w-2 h-2 text-islamic-gold mr-1" />
+                              {item}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <Link href="/contact" className="btn-primary text-sm py-2 px-4">
+                        Enroll Now
+                        <ArrowRight className="ml-1 w-4 h-4" />
+                      </Link>
                     </div>
                   </div>
-                  
-                  <div className="space-y-3">
-                    <div className="text-sm text-gray-500">
-                      <span className="font-medium">Requirements:</span>
-                      <p className="mt-1">{course.requirements}</p>
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      <span className="font-medium">Instructor:</span>
-                      <p className="mt-1">{course.instructor}</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="font-semibold text-secondary mb-3 flex items-center">
-                    <Star className="w-4 h-4 text-primary mr-2" />
-                    Course Features:
-                  </h4>
-                  <ul className="space-y-2">
-                    {course.features.map((feature, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-3 h-3 text-primary mr-2" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold text-secondary mb-3 flex items-center">
-                    <CheckCircle className="w-4 h-4 text-primary mr-2" />
-                    What You'll Gain:
-                  </h4>
-                  <ul className="space-y-2">
-                    {course.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-3 h-3 text-primary mr-2" />
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mb-6">
-                  <h4 className="font-semibold text-secondary mb-3 flex items-center">
-                    <BookOpen className="w-4 h-4 text-primary mr-2" />
-                    Course Content:
-                  </h4>
-                  <ul className="space-y-2">
-                    {course.content.map((item, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-3 h-3 text-primary mr-2" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="mt-auto">
-                  <Link href="/contact" className="btn-primary w-full text-center">
-                    Enroll Now
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
