@@ -107,20 +107,54 @@ const Courses = () => {
     }
   ]
 
-  const CourseCard = ({ course, type }: { course: any, type: string }) => (
+  const getIconForCourse = (course: any, type: string) => {
+    if (type === 'quran') {
+      if (course.title.includes('Nouraniyyah')) return <BookOpen className="w-6 h-6 text-white" />
+      if (course.title.includes('Noorul-Bayaan')) return <Star className="w-6 h-6 text-white" />
+      if (course.title.includes('Tajweed')) return <Video className="w-6 h-6 text-white" />
+      if (course.title.includes('Hifz')) return <Users className="w-6 h-6 text-white" />
+      return <Clock className="w-6 h-6 text-white" />
+    }
+    if (type === 'arabic') {
+      return course.title.includes('Madina') ? <BookOpen className="w-6 h-6 text-white" /> : <Video className="w-6 h-6 text-white" />
+    }
+    // Children courses
+    if (course.title.includes('Alif Ba')) return <BookOpen className="w-6 h-6 text-white" />
+    if (course.title.includes('Tajweed')) return <Star className="w-6 h-6 text-white" />
+    if (course.title.includes('Hifz')) return <Users className="w-6 h-6 text-white" />
+    return <Clock className="w-6 h-6 text-white" />
+  }
+
+  const getGradientForCourse = (course: any, type: string, index: number) => {
+    const gradients = [
+      'from-islamic-gold to-islamic-gold-light',
+      'from-islamic-blue to-islamic-blue-light',
+      'from-islamic-gold to-islamic-blue',
+      'from-islamic-blue-dark to-islamic-gold-dark'
+    ]
+    return gradients[index % gradients.length]
+  }
+
+  const CourseCard = ({ course, type, index }: { course: any, type: string, index: number }) => (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6 }}
-      className="glass-card group p-8 h-full flex flex-col relative z-10 hover:scale-[1.02] transition-all duration-300"
+      className="islamic-card p-6"
     >
-      {/* Header with Price Badge */}
-      <div className="flex items-start justify-between mb-6">
+      <div className="flex items-start space-x-4">
+        <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${getGradientForCourse(course, type, index)} rounded-xl flex items-center justify-center`}>
+          {getIconForCourse(course, type)}
+        </div>
         <div className="flex-1">
-          <h3 className="text-2xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors duration-300">
-            {course.title}
-          </h3>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex items-start justify-between mb-2">
+            <h3 className="text-xl font-bold text-secondary font-amiri">{course.title}</h3>
+            <div className="bg-gradient-to-r from-islamic-gold to-islamic-blue text-white px-3 py-1 rounded-lg font-bold text-sm ml-4 flex-shrink-0">
+              {course.price}
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
             <div className="flex items-center">
               <Clock className="w-4 h-4 mr-1" />
               {course.duration}
@@ -130,37 +164,31 @@ const Courses = () => {
               {course.level || course.age}
             </div>
           </div>
-        </div>
-        <div className="bg-gradient-to-r from-primary to-primary-light text-white px-4 py-2 rounded-2xl font-bold text-lg shadow-lg">
-          {course.price}
-        </div>
-      </div>
-      
-      {/* Description */}
-      <p className="text-gray-600 mb-6 leading-relaxed flex-grow text-base">
-        {course.description}
-      </p>
-      
-      {/* Features */}
-      <div className="mb-8">
-        <h4 className="font-semibold text-secondary mb-4 text-lg">What You'll Learn:</h4>
-        <div className="grid grid-cols-1 gap-3">
-          {course.features.map((feature: string, index: number) => (
-            <div key={index} className="flex items-center text-gray-600">
-              <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                <Star className="w-3 h-3 text-primary fill-current" />
-              </div>
-              <span className="text-sm font-medium">{feature}</span>
+          
+          <p className="text-gray-600 leading-relaxed mb-4">
+            {course.description}
+          </p>
+          
+          <div className="mb-4">
+            <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Key Features:</h4>
+            <div className="grid grid-cols-2 gap-2">
+              {course.features.slice(0, 4).map((feature: string, featureIndex: number) => (
+                <div key={featureIndex} className="flex items-center text-gray-600">
+                  <div className="w-4 h-4 bg-islamic-gold/10 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                    <Star className="w-2 h-2 text-islamic-gold fill-current" />
+                  </div>
+                  <span className="text-xs">{feature}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          
+          <button className="btn-primary text-sm py-2 px-4">
+            Book Course
+            <ArrowRight className="ml-1 w-4 h-4" />
+          </button>
         </div>
       </div>
-      
-      {/* CTA Button */}
-      <button className="btn-primary w-full text-center group-hover:bg-primary-dark transition-all duration-300">
-        Book This Course
-        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-      </button>
     </motion.div>
   )
 
@@ -193,9 +221,9 @@ const Courses = () => {
             <BookOpen className="w-10 h-10 text-primary mr-4" />
             Quran Courses
           </motion.h3>
-          <div className="course-grid-featured">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {quranCourses.map((course, index) => (
-              <CourseCard key={course.title} course={course} type="quran" />
+              <CourseCard key={course.title} course={course} type="quran" index={index} />
             ))}
           </div>
         </div>
@@ -211,9 +239,9 @@ const Courses = () => {
             <Video className="w-10 h-10 text-primary mr-4" />
             Arabic Language Courses
           </motion.h3>
-          <div className="grid-cards-2">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {arabicCourses.map((course, index) => (
-              <CourseCard key={course.title} course={course} type="arabic" />
+              <CourseCard key={course.title} course={course} type="arabic" index={index} />
             ))}
           </div>
         </div>
@@ -229,9 +257,9 @@ const Courses = () => {
             <Users className="w-10 h-10 text-primary mr-4" />
             AlephLam Kids
           </motion.h3>
-          <div className="course-grid-compact">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {childrenCourses.map((course, index) => (
-              <CourseCard key={course.title} course={course} type="children" />
+              <CourseCard key={course.title} course={course} type="children" index={index} />
             ))}
           </div>
         </div>

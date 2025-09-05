@@ -73,38 +73,51 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-card p-8 relative z-10"
-            >
-              <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/20" />
-              
-              <div className="flex items-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center text-white font-semibold mr-4 shadow-lg">
-                  {testimonial.avatar}
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => {
+            const gradients = [
+              'from-islamic-gold to-islamic-gold-light',
+              'from-islamic-blue to-islamic-blue-light',
+              'from-islamic-gold to-islamic-blue',
+              'from-islamic-blue-dark to-islamic-gold-dark'
+            ]
+            const gradient = gradients[index % gradients.length]
+            
+            return (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="islamic-card p-6"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center text-white font-semibold`}>
+                    {testimonial.avatar}
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <h4 className="font-bold text-secondary font-amiri">{testimonial.name}</h4>
+                        <p className="text-sm text-gray-500">{testimonial.role}</p>
+                      </div>
+                      <Quote className="w-6 h-6 text-islamic-gold/30 flex-shrink-0 ml-2" />
+                    </div>
+                    
+                    <div className="flex items-center mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-islamic-gold fill-current" />
+                      ))}
+                    </div>
+                    
+                    <p className="text-gray-600 leading-relaxed italic text-sm">
+                      "{testimonial.content}"
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-secondary">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-primary fill-current" />
-                ))}
-              </div>
-              
-              <p className="text-gray-600 leading-relaxed italic">
-                "{testimonial.content}"
-              </p>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Overall Rating Section */}

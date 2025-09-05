@@ -27,10 +27,10 @@ const Header = () => {
   ]
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+    <header className={`sticky top-0 z-[100] transition-all duration-300 ${
       isScrolled 
-        ? 'bg-transparent backdrop-blur-sm shadow-lg border-b border-gray-200/30' 
-        : 'bg-transparent shadow-none border-b border-transparent'
+        ? 'bg-white/80 backdrop-blur-sm shadow-lg border-b border-gray-200/30' 
+        : 'bg-white/60 shadow-none border-b border-transparent'
     }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-28 px-4 sm:px-6 lg:px-8">
