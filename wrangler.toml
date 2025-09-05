@@ -1,0 +1,9 @@
+name = "alephlam-website"
+compatibility_date = "2025-09-05"
+main = "./.vercel/output/functions/\[[path\]].js"
+
+[site]
+directory = "./.vercel/output/static"
+
+[build]
+command = "npm run build"
