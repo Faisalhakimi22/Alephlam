@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlephLam - Our Teaching Values</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Islamic Border Container */
+        .islamic-border {
+            position: relative;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* Corner Islamic Patterns */
+        .islamic-border::before,
+        .islamic-border::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-image: 
+                radial-gradient(circle at 50% 50%, #d4af37 2px, transparent 2px),
+                radial-gradient(circle at 25% 25%, #2c5f7c 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, #d4af37 1.5px, transparent 1.5px);
+            background-size: 20px 20px, 15px 15px, 25px 25px;
+            opacity: 0.3;
+        }
+        
+        .islamic-border::before {
+            top: -60px;
+            left: -60px;
+            border-radius: 50%;
+        }
+        
+        .islamic-border::after {
+            bottom: -60px;
+            right: -60px;
+            border-radius: 50%;
+        }
+        
+        /* Geometric Pattern Border */
+        .geometric-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid transparent;
+            border-radius: 20px;
+            background: 
+                linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #d4af37, #2c5f7c, #d4af37) border-box;
+        }
+        
+        /* Islamic Geometric Pattern Overlay */
+        .pattern-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid #2c5f7c;
+            border-radius: 15px;
+            opacity: 0.1;
+        }
+        
+        .pattern-overlay::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px dashed #d4af37;
+            border-radius: 20px;
+            opacity: 0.5;
+        }
+        
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .main-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: #2c5f7c;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: #2c5f7c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #2c5f7c);
+            border-radius: 2px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .value-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #d4af37;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37, #2c5f7c);
+            clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+            opacity: 0.1;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            background: #ffffff;
+        }
+        
+        .value-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: #2c5f7c;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .value-description {
+            color: #495057;
+            line-height: 1.7;
+        }
+        
+        /* Teaching Method Steps */
+        .teaching-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(45deg, #d4af37, #2c5f7c);
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .step-card:hover::before {
+            opacity: 1;
+        }
+        
+        .step-card:hover {
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #d4af37, #2c5f7c);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .step-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2c5f7c;
+            transition: color 0.3s ease;
+        }
+        
+        .step-card:hover .step-title {
+            color: white;
+        }
+        
+        .step-description {
+            color: #6c757d;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        
+        .step-card:hover .step-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Islamic Calligraphy Decorative Elements */
+        .decorative-element {
+            position: absolute;
+            font-family: 'Amiri', serif;
+            color: #d4af37;
+            opacity: 0.1;
+            font-size: 6rem;
+            z-index: 1;
+            user-select: none;
+            pointer-events: none;
+        }
+        
+        .decorative-element.top-right {
+            top: 10%;
+            right: 5%;
+            transform: rotate(15deg);
+        }
+        
+        .decorative-element.bottom-left {
+            bottom: 10%;
+            left: 5%;
+            transform: rotate(-15deg);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .islamic-border {
+                padding: 2rem;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .values-grid,
+            .teaching-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation for decorative elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(15deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+        }
+        
+        .decorative-element.top-right {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(-15deg); }
+            50% { transform: translateY(20px) rotate(-15deg); }
+        }
+        
+        .decorative-element.bottom-left {
+            animation: floatReverse 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="islamic-border">
+            <div class="geometric-border"></div>
+            <div class="pattern-overlay"></div>
+            
+            <!-- Decorative Islamic Elements -->
+            <div class="decorative-element top-right">بِسْمِ</div>
+            <div class="decorative-element bottom-left">اللَّهِ</div>
+            
+            <!-- Header -->
+            <div class="header">
+                <h1 class="main-title">Our Teaching Values</h1>
+                <p class="subtitle">At AlephLam, we've crafted a unique approach to Islamic education that puts comfort, understanding, and family bonds at the heart of learning.</p>
+            </div>
+            
+            <!-- Teaching Values Section -->
+            <div class="content-section">
+                <h2 class="section-title">Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3 class="value-title">Nurturing Environment</h3>
+                        <p class="value-description">We create a safe space where every student feels valued and supported. Fear has no place in our classrooms—only encouragement and patience.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3 class="value-title">Personalized Learning</h3>
+                        <p class="value-description">Every student learns differently. Our teachers adapt their methods to match your pace, ensuring deep understanding rather than rushed progress.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3 class="value-title">Family-Centered Approach</h3>
+                        <p class="value-description">Learning together strengthens family bonds. We design our programs so parents and children can embark on this spiritual journey side by side.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3 class="value-title">Excellence in Teaching</h3>
+                        <p class="value-description">Our qualified teachers combine traditional Islamic scholarship with modern teaching methods, making complex concepts accessible and engaging.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Teaching Methodology Section -->
+            <div class="content-section">
+                <h2 class="section-title">How We Teach</h2>
+                <p style="text-align: center; color: #6c757d; margin-bottom: 2rem; font-style: italic;">Our time-tested methodology combines traditional Islamic education with modern teaching techniques</p>
+                
+                <div class="teaching-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Assessment & Goal Setting</h3>
+                        <p class="step-description">We begin by understanding your current level and learning objectives, creating a personalized roadmap for your Quranic journey.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Interactive Learning</h3>
+                        <p class="step-description">Through live sessions, we engage students with interactive recitation, comprehension exercises, and practical applications of Islamic teachings.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Continuous Support</h3>
+                        <p class="step-description">Regular feedback, recorded sessions for review, and ongoing mentorship ensure steady progress and long-term retention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
