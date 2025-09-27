@@ -176,8 +176,8 @@ npm start
 
 ## 📞 Contact Information
 
-- **Email**: info@alephlam.com
-- **Phone**: +49 123 456 789
+- **Email**: alephlam03@gmail.com
+- **Phone**: +49 159 022 97532
 - **Platform**: Online classes via Zoom
 
 ## 🤝 Contributing

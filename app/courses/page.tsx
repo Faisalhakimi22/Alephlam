@@ -230,7 +230,34 @@ const CoursesPage = () => {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark text-white section-padding">
+      <section 
+        className="relative text-white section-padding overflow-hidden"
+        style={{
+          minHeight: '70vh'
+        }}
+      >
+        {/* Clean & Elegant Background */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url('/4357946530f126d289fa636573275f87.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+        
+        {/* Text Readability Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.8) 100%)',
+            zIndex: 3
+          }}
+        ></div>
+        
+        {/* Content */}
+        <div className="relative z-10">
         <div className="container-custom text-center">
           <motion.div
             ref={ref}
@@ -256,6 +283,7 @@ const CoursesPage = () => {
               </Link>
             </div>
           </motion.div>
+        </div>
         </div>
       </section>
 

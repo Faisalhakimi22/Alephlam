@@ -49,13 +49,13 @@ const ContactForm = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'info@alephlam.com',
+      content: 'alephlam03@gmail.com',
       description: 'Send us an email anytime'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+49 123 456 789',
+      content: '+49 159 022 97532',
       description: 'Mon-Fri from 9am to 6pm'
     },
     {

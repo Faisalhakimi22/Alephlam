@@ -16,13 +16,13 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@alephlam.com',
+      content: 'alephlam03@gmail.com',
       description: 'Send us an email anytime'
     },
     {
       icon: Phone,
       title: 'Phone',
-      content: '+49 123 456 789',
+      content: '+49 159 022 97532',
       description: 'Call us during business hours'
     },
     {
