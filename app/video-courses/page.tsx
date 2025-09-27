@@ -131,7 +131,7 @@ const VideoCoursesPage = () => {
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark text-white section-padding">
-        <div className="container-custom text-center">
+        <div className="container-custom px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
@@ -139,19 +139,19 @@ const VideoCoursesPage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="text-primary">Video</span> Courses
             </h1>
-            <p className="text-xl text-gray-200 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
               Learn at your own pace with our comprehensive video courses. Perfect for busy schedules, 
               self-paced learning, or supplementing your live classes with additional practice.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#courses" className="btn-large bg-primary hover:bg-primary-dark text-white border-0">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+              <a href="#courses" className="btn-large bg-primary hover:bg-primary-dark text-white border-0 text-sm sm:text-base">
                 Browse Courses
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <Link href="/contact" className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary">
+              <Link href="/contact" className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary text-sm sm:text-base">
                 Get Started
               </Link>
             </div>
@@ -161,16 +161,16 @@ const VideoCoursesPage = () => {
 
       {/* Learning Features */}
       <section className="bg-white section-padding">
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl font-bold text-secondary mb-12 text-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 text-center"
           >
             Why Choose <span className="text-gradient">Video Learning</span>
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {learningFeatures.map((feature, index) => {
               const gradients = [
                 'from-islamic-gold to-islamic-gold-light',
@@ -206,28 +206,28 @@ const VideoCoursesPage = () => {
 
       {/* Platform Features */}
       <section className="bg-accent section-padding">
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl font-bold text-secondary mb-12 text-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 text-center"
           >
             Learning <span className="text-gradient">Platform Features</span>
           </motion.h2>
-          <div className="grid-cards-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {platformFeatures.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-8 text-center relative z-10"
+                className="glass-card p-6 sm:p-8 text-center relative z-10"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <CheckCircle className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                  <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <p className="text-gray-600 font-medium">{feature}</p>
+                <p className="text-gray-600 font-medium text-sm sm:text-base">{feature}</p>
               </motion.div>
             ))}
           </div>
@@ -236,16 +236,16 @@ const VideoCoursesPage = () => {
 
       {/* Video Courses */}
       <section className="bg-white section-padding" id="courses">
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-4xl font-bold text-secondary mb-12 text-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 text-center"
           >
             Our <span className="text-gradient">Video Courses</span>
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {videoCourses.map((course, index) => {
               const gradients = [
                 'from-islamic-gold to-islamic-gold-light',

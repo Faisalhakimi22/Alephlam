@@ -101,9 +101,9 @@ const AlephLamKidsPage = () => {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark text-white py-24 px-4">
+      <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark text-white py-16 sm:py-20 lg:py-24 px-4">
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container-custom relative z-10 text-center">
+        <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
@@ -111,19 +111,19 @@ const AlephLamKidsPage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="text-primary">AlephLam</span> Kids
             </h1>
-            <p className="text-xl text-gray-200 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
               Nurturing the next generation of Islamic scholars through engaging, age-appropriate education. 
               Our specialized programs make learning fun, meaningful, and spiritually enriching.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+              <Link href="/contact" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base">
                 Start Learning
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
-              <Link href="#courses" className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-secondary font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
+              <Link href="#courses" className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white hover:bg-white hover:text-secondary font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
                 View Courses
               </Link>
             </div>
@@ -132,24 +132,24 @@ const AlephLamKidsPage = () => {
       </section>
 
       {/* Teaching Approach */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container-custom">
+      <section className="py-16 sm:py-20 px-4 bg-white">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-4xl font-bold text-secondary mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-4 sm:mb-6">
               Our <span className="text-gradient">Teaching Approach</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               We understand that children learn differently. Our methodology combines traditional Islamic education 
               with modern teaching techniques to create an engaging and effective learning experience.
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {teachingMethods.map((method, index) => {
               const gradients = [
                 'from-islamic-gold to-islamic-gold-light',
@@ -201,7 +201,7 @@ const AlephLamKidsPage = () => {
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {ageGroups.map((group, index) => {
               const gradients = [
                 'from-islamic-gold to-islamic-gold-light',
@@ -263,7 +263,7 @@ const AlephLamKidsPage = () => {
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {courses.map((course, index) => {
               const gradients = [
                 'from-islamic-gold to-islamic-gold-light',

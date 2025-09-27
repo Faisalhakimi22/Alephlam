@@ -121,7 +121,7 @@ const BookCoursePage = () => {
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark text-white section-padding">
-        <div className="container-custom text-center">
+        <div className="container-custom px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
@@ -129,19 +129,19 @@ const BookCoursePage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               Book Your <span className="text-primary">Course</span>
             </h1>
-            <p className="text-xl text-gray-200 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
               Ready to start your Islamic education journey? Choose your course, pick your schedule, 
               and enroll in just a few simple steps.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#courses" className="btn-large bg-primary hover:bg-primary-dark text-white border-0">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+              <a href="#courses" className="btn-large bg-primary hover:bg-primary-dark text-white border-0 text-sm sm:text-base">
                 View Courses
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </a>
-              <Link href="/contact" className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary">
+              <Link href="/contact" className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary text-sm sm:text-base">
                 Need Help?
               </Link>
             </div>

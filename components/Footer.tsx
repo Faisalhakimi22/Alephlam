@@ -57,38 +57,38 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-white">
       <div className="container-custom">
-        <div className="py-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8">
+        <div className="py-12 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-6 sm:gap-8">
             {/* Logo and Description */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center mb-6">
+            <div className="sm:col-span-2 lg:col-span-2">
+              <div className="flex items-center mb-4 sm:mb-6">
                 <Link href="/" className="flex items-center">
-                  <div className="bg-white rounded-lg p-4 shadow-lg">
+                  <div className="bg-white rounded-lg p-3 sm:p-4 shadow-lg">
                     <Image
                       src="/logo_enlarged.png"
                       alt="AlephLam Logo"
-                      width={180}
-                      height={180}
-                      className="h-48 w-auto"
+                      width={120}
+                      height={120}
+                      className="h-32 sm:h-40 lg:h-48 w-auto"
                     />
                   </div>
                 </Link>
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                 Professional Islamic education platform offering Quran and Arabic learning for the whole family. 
                 Learn in a supportive, brotherly atmosphere with qualified teachers.
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center text-gray-300">
-                  <Mail className="w-4 h-4 mr-3" />
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex items-center text-gray-300 text-sm sm:text-base">
+                  <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3" />
                   alephlam03@gmail.com
                 </div>
-                <div className="flex items-center text-gray-300">
-                  <Phone className="w-4 h-4 mr-3" />
+                <div className="flex items-center text-gray-300 text-sm sm:text-base">
+                  <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3" />
                   +49 159 022 97532
                 </div>
-                <div className="flex items-center text-gray-300">
-                  <MapPin className="w-4 h-4 mr-3" />
+                <div className="flex items-center text-gray-300 text-sm sm:text-base">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-2 sm:mr-3" />
                   Online Classes via Zoom
                 </div>
               </div>
@@ -96,13 +96,13 @@ const Footer = () => {
 
             {/* Main Pages */}
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-primary">Main Pages</h3>
-              <ul className="space-y-2">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-primary">Main Pages</h3>
+              <ul className="space-y-1 sm:space-y-2">
                 {footerLinks.mainPages.map((link) => (
                   <li key={link.name}>
                     <Link 
                       href={link.href}
-                      className="text-gray-300 hover:text-primary transition-colors duration-200"
+                      className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm sm:text-base"
                     >
                       {link.name}
                     </Link>
@@ -113,13 +113,13 @@ const Footer = () => {
 
             {/* Quran Courses */}
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-primary">Quran Courses</h3>
-              <ul className="space-y-2">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-primary">Quran Courses</h3>
+              <ul className="space-y-1 sm:space-y-2">
                 {footerLinks.courses.map((link) => (
                   <li key={link.name}>
                     <Link 
                       href={link.href}
-                      className="text-gray-300 hover:text-primary transition-colors duration-200"
+                      className="text-gray-300 hover:text-primary transition-colors duration-200 text-sm sm:text-base"
                     >
                       {link.name}
                     </Link>

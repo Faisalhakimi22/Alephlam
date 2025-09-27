@@ -14,6 +14,7 @@ const CoursesPage = () => {
 
   const quranCourses = [
     {
+      slug: 'nouraniyyah',
       title: 'Nouraniyyah',
       description: 'Learn correct reading of Quranic words starting from letters using the typical Nouraniyyah spelling method, up to complete verses. Basic Tajweed rules are also taught.',
       price: '30€',
@@ -26,6 +27,7 @@ const CoursesPage = () => {
       schedule: '2 sessions per week, 45 minutes each'
     },
     {
+      slug: 'noorul-bayaan',
       title: 'Noorul-Bayaan',
       description: 'A very popular method for learning Quran reading. From letters to reciting Quranic verses. Through spelling words and naming Tajweed rules.',
       price: '30€',
@@ -38,6 +40,7 @@ const CoursesPage = () => {
       schedule: '2 sessions per week, 45 minutes each'
     },
     {
+      slug: 'tajweed-intensive-live',
       title: 'Tajweed Intensive (LIVE)',
       description: 'A comprehensive course covering all areas of Tajweed science. Learn different reading styles with focus on Hafs-an-Asim.',
       price: '30€',
@@ -50,6 +53,7 @@ const CoursesPage = () => {
       schedule: '3 sessions per week, 60 minutes each'
     },
     {
+      slug: 'reading-correction',
       title: 'Reading Correction',
       description: 'For students who can recite Quran slowly and need help with Tajweed rules. Uses the Taqliid (imitation) method.',
       price: '25€',
@@ -62,6 +66,7 @@ const CoursesPage = () => {
       schedule: '2 sessions per week, 45 minutes each'
     },
     {
+      slug: 'hifz-al-quran',
       title: 'Hifz Al-Quran',
       description: 'For memorizing the Quran. Learn 1-2 verses per week with regular reviews and checks of previously learned material.',
       price: '25€',
@@ -74,6 +79,7 @@ const CoursesPage = () => {
       schedule: '3 sessions per week, 45 minutes each'
     },
     {
+      slug: 'tarjuma-al-quran',
       title: 'Tarjuma Al-Quran',
       description: 'Word-for-word and overall translation of Quran. Focus on meaning while maintaining Tajweed in recitation.',
       price: '30€',
@@ -86,6 +92,7 @@ const CoursesPage = () => {
       schedule: '2 sessions per week, 60 minutes each'
     },
     {
+      slug: 'tafseer-al-quran',
       title: 'Tafseer Al-Quran',
       description: 'In-depth explanation of verses (Asbab al-Nuzul, rulings, wisdom, and connections with daily life).',
       price: '35€',
@@ -101,6 +108,7 @@ const CoursesPage = () => {
 
   const arabicCourses = [
     {
+      slug: 'madina-arabic',
       title: 'Madina Arabic',
       description: 'Focus on grammar and analyzing individual sentence parts. Build vocabulary through everyday and religious dialogues.',
       price: '35€',
@@ -112,6 +120,7 @@ const CoursesPage = () => {
       schedule: '2 sessions per week, 60 minutes each'
     },
     {
+      slug: 'bayna-yadaik',
       title: 'Bayna Yadaik',
       description: 'Uses "Al Arabiya bayna Yadayk" book series with many dialogues on everyday topics that promote free speaking.',
       price: '35€',
@@ -126,6 +135,7 @@ const CoursesPage = () => {
 
   const childrenCourses = [
     {
+      slug: 'alif-ba-for-children',
       title: 'Alif Ba for Children (4+)',
       description: 'Children are introduced to letters playfully through various tasks and learn to recognize, pronounce, and name them safely.',
       price: '20€',
@@ -137,6 +147,7 @@ const CoursesPage = () => {
       schedule: '2 sessions per week, 30 minutes each'
     },
     {
+      slug: 'tajweed-poems-reading',
       title: 'Tajweed Poems & Reading',
       description: 'Children learn Tajweed rules through easily understandable poems and recite Quranic verses together.',
       price: '25€',
@@ -148,6 +159,7 @@ const CoursesPage = () => {
       schedule: '2 sessions per week, 45 minutes each'
     },
     {
+      slug: 'hifz-for-children',
       title: 'Hifz for Children',
       description: 'For children who want to memorize Quran in a motivating way. Our loving teachers support your child patiently.',
       price: '20€',
@@ -159,6 +171,7 @@ const CoursesPage = () => {
       schedule: '3 sessions per week, 30 minutes each'
     },
     {
+      slug: 'learn-prayer-with-batut',
       title: 'Learn Prayer with BaTut',
       description: 'Our most popular course. No child leaves without being able to perform the 5 daily prayers independently.',
       price: '25€',
@@ -251,10 +264,15 @@ const CoursesPage = () => {
               </div>
             </div>
             
-            <Link href="/contact" className="btn-primary text-sm py-2 px-4">
-              Enroll Now
-              <ArrowRight className="ml-1 w-4 h-4" />
-            </Link>
+            <div className="flex gap-2">
+              <Link href={`/courses/${course.slug || course.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`} className="btn-primary text-sm py-2 px-4 flex-1 text-center">
+                View Details
+                <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
+              <Link href="/contact" className="btn-secondary text-sm py-2 px-4">
+                Enroll
+              </Link>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -292,7 +310,7 @@ const CoursesPage = () => {
         
         {/* Content */}
         <div className="relative z-10">
-        <div className="container-custom text-center">
+        <div className="container-custom px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
@@ -300,19 +318,19 @@ const CoursesPage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               Our <span className="text-primary">Courses</span>
             </h1>
-            <p className="text-xl text-gray-200 leading-relaxed mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
               Discover our comprehensive range of Islamic education courses designed for all ages and levels. 
               Each course is carefully crafted to ensure optimal learning outcomes and spiritual growth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-large bg-primary hover:bg-primary-dark text-white border-0">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+              <Link href="/contact" className="btn-large bg-primary hover:bg-primary-dark text-white border-0 text-sm sm:text-base">
                 Get Started Today
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
-              <Link href="/quiz" className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary">
+              <Link href="/quiz" className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary text-sm sm:text-base">
                 Take Course Quiz
               </Link>
             </div>
@@ -323,17 +341,17 @@ const CoursesPage = () => {
 
       {/* Quran Courses */}
       <section className="bg-white section-padding">
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl font-bold text-secondary mb-12 flex items-center justify-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 flex items-center justify-center flex-wrap"
           >
-            <BookOpen className="w-10 h-10 text-primary mr-4" />
-            Quran Courses (7 courses)
+            <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
+            <span className="text-center">Quran Courses (7 courses)</span>
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {quranCourses.map((course, index) => (
               <CourseCard key={course.title} course={course} type="quran" index={index} />
             ))}
@@ -343,17 +361,17 @@ const CoursesPage = () => {
 
       {/* Arabic Courses */}
       <section className="bg-accent section-padding">
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-4xl font-bold text-secondary mb-12 flex items-center justify-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 flex items-center justify-center flex-wrap"
           >
-            <Video className="w-10 h-10 text-primary mr-4" />
-            Arabic Language Courses
+            <Video className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
+            <span className="text-center">Arabic Language Courses</span>
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {arabicCourses.map((course, index) => (
               <CourseCard key={course.title} course={course} type="arabic" index={index} />
             ))}
@@ -363,17 +381,17 @@ const CoursesPage = () => {
 
       {/* Children Courses */}
       <section className="bg-white section-padding">
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-4xl font-bold text-secondary mb-12 flex items-center justify-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 flex items-center justify-center flex-wrap"
           >
-            <Users className="w-10 h-10 text-primary mr-4" />
-            AlephLam Kids
+            <Users className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
+            <span className="text-center">AlephLam Kids</span>
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {childrenCourses.map((course, index) => (
               <CourseCard key={course.title} course={course} type="children" index={index} />
             ))}
@@ -383,66 +401,66 @@ const CoursesPage = () => {
 
       {/* Statistics Section */}
       <section className="bg-accent section-padding">
-        <div className="container-custom">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-4xl font-bold text-secondary mb-12 text-center"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 text-center"
           >
             Why Students Choose <span className="text-gradient">AlephLam</span>
           </motion.h2>
-          <div className="grid-cards-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="glass-card p-8 text-center relative z-10"
+              className="glass-card p-6 sm:p-8 text-center relative z-10"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Users className="w-10 h-10 text-white" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                <Users className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-2">500+</h3>
-              <p className="text-gray-600">Active Students</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">500+</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Active Students</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="glass-card p-8 text-center relative z-10"
+              className="glass-card p-6 sm:p-8 text-center relative z-10"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Award className="w-10 h-10 text-white" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                <Award className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-2">15+</h3>
-              <p className="text-gray-600">Years Experience</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">15+</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Years Experience</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.0 }}
-              className="glass-card p-8 text-center relative z-10"
+              className="glass-card p-6 sm:p-8 text-center relative z-10"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Globe className="w-10 h-10 text-white" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-2">25+</h3>
-              <p className="text-gray-600">Countries Served</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">25+</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Countries Served</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.1 }}
-              className="glass-card p-8 text-center relative z-10"
+              className="glass-card p-6 sm:p-8 text-center relative z-10"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Heart className="w-10 h-10 text-white" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
+                <Heart className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-2">98%</h3>
-              <p className="text-gray-600">Student Satisfaction</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">98%</h3>
+              <p className="text-gray-600 text-sm sm:text-base">Student Satisfaction</p>
             </motion.div>
           </div>
         </div>
@@ -450,28 +468,28 @@ const CoursesPage = () => {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-primary to-primary-light section-padding">
-        <div className="container-custom text-center">
+        <div className="container-custom px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Ready to Start Your Learning Journey?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8">
               Join hundreds of students who have already transformed their Quran and Arabic learning experience with AlephLam.
             </p>
-                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               <Link href="/contact" className="btn-large bg-white text-primary hover:bg-gray-100">
-                 Enroll Now
-                 <ArrowRight className="ml-2 w-5 h-5" />
-               </Link>
-               <Link href="/quiz" className="btn-large border-2 border-white text-white hover:bg-white hover:text-primary">
-                 Find Your Course
-               </Link>
-             </div>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+              <Link href="/contact" className="btn-large bg-white text-primary hover:bg-gray-100 text-sm sm:text-base">
+                Enroll Now
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              </Link>
+              <Link href="/quiz" className="btn-large border-2 border-white text-white hover:bg-white hover:text-primary text-sm sm:text-base">
+                Find Your Course
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

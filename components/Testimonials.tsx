@@ -56,24 +56,24 @@ const Testimonials = () => {
   ]
 
   return (
-    <section className="bg-white section-padding" id="testimonials">
-      <div className="container-custom">
+    <section className="bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8" id="testimonials">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 sm:mb-6">
             What Our <span className="text-gradient">Students Say</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
             Don't just take our word for it. Here's what our students and their families have to say about their learning experience with AlephLam.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => {
             const gradients = [
               'from-islamic-gold to-islamic-gold-light',
@@ -89,28 +89,28 @@ const Testimonials = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="islamic-card p-6"
+                className="islamic-card p-4 sm:p-6"
               >
-                <div className="flex items-start space-x-4">
-                  <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center text-white font-semibold`}>
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center text-white font-semibold text-sm sm:text-base`}>
                     {testimonial.avatar}
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between mb-2">
-                      <div>
-                        <h4 className="font-bold text-secondary font-amiri">{testimonial.name}</h4>
-                        <p className="text-sm text-gray-500">{testimonial.role}</p>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-bold text-secondary font-amiri text-sm sm:text-base">{testimonial.name}</h4>
+                        <p className="text-xs sm:text-sm text-gray-500 truncate">{testimonial.role}</p>
                       </div>
-                      <Quote className="w-6 h-6 text-islamic-gold/30 flex-shrink-0 ml-2" />
+                      <Quote className="w-4 h-4 sm:w-6 sm:h-6 text-islamic-gold/30 flex-shrink-0 ml-2" />
                     </div>
                     
-                    <div className="flex items-center mb-3">
+                    <div className="flex items-center mb-2 sm:mb-3">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-islamic-gold fill-current" />
+                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-islamic-gold fill-current" />
                       ))}
                     </div>
                     
-                    <p className="text-gray-600 leading-relaxed italic text-sm">
+                    <p className="text-gray-600 leading-relaxed italic text-xs sm:text-sm">
                       "{testimonial.content}"
                     </p>
                   </div>
@@ -125,35 +125,35 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 glass-card-gradient bg-gradient-to-r from-primary to-primary-light rounded-3xl p-8 md:p-12 text-white text-center relative z-10"
+          className="mt-12 sm:mt-16 glass-card-gradient bg-gradient-to-r from-primary to-primary-light rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-white text-center relative z-10"
         >
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center mb-3 sm:mb-4">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-8 h-8 text-white fill-current" />
+              <Star key={i} className="w-6 h-6 sm:w-8 sm:h-8 text-white fill-current" />
             ))}
           </div>
-          <h3 className="text-3xl md:text-4xl font-bold mb-2">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
             4.9/5 Average Rating
           </h3>
-          <p className="text-xl text-white/90 mb-6">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-4 sm:mb-6">
             Based on 500+ student reviews
           </p>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <div>
-              <div className="text-3xl font-bold mb-1">500+</div>
-              <div className="text-white/80">Happy Students</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">500+</div>
+              <div className="text-white/80 text-xs sm:text-sm md:text-base">Happy Students</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-1">50+</div>
-              <div className="text-white/80">Expert Teachers</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">50+</div>
+              <div className="text-white/80 text-xs sm:text-sm md:text-base">Expert Teachers</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-1">15+</div>
-              <div className="text-white/80">Course Types</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">15+</div>
+              <div className="text-white/80 text-xs sm:text-sm md:text-base">Course Types</div>
             </div>
             <div>
-              <div className="text-3xl font-bold mb-1">99%</div>
-              <div className="text-white/80">Satisfaction Rate</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">99%</div>
+              <div className="text-white/80 text-xs sm:text-sm md:text-base">Satisfaction Rate</div>
             </div>
           </div>
         </motion.div>

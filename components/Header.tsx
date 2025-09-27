@@ -32,36 +32,37 @@ const Header = () => {
         ? 'bg-white/80 backdrop-blur-sm shadow-lg border-b border-gray-200/30' 
         : 'bg-white/60 shadow-none border-b border-transparent'
     }`}>
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-28 px-4 sm:px-6 lg:px-8">
+      <div className="container-custom px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20 sm:h-24 lg:h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/logo_enlarged.png"
               alt="AlephLam Logo"
-              width={150}
-              height={150}
-              className="h-40 w-auto"
+              width={120}
+              height={120}
+              className="h-24 sm:h-32 lg:h-40 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="flex items-center text-secondary hover:text-primary transition-colors duration-200 font-medium"
+                className="flex items-center text-secondary hover:text-primary transition-colors duration-200 font-medium text-sm lg:text-base"
               >
-                <item.icon className="w-4 h-4 mr-2" />
-                {item.name}
+                <item.icon className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2" />
+                <span className="hidden lg:inline">{item.name}</span>
+                <span className="lg:hidden">{item.name.split(' ')[0]}</span>
               </Link>
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Link href="/contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary text-xs lg:text-sm px-3 lg:px-4 py-2">
               Get Started
             </Link>
           </div>
@@ -70,12 +71,12 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-secondary hover:text-primary transition-colors duration-200"
+              className="text-secondary hover:text-primary transition-colors duration-200 p-2"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
               )}
             </button>
           </div>
@@ -93,7 +94,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="flex items-center px-3 py-2 text-secondary hover:text-primary hover:bg-accent rounded-md transition-colors duration-200 font-medium"
+                  className="flex items-center px-3 py-2 text-secondary hover:text-primary hover:bg-accent rounded-md transition-colors duration-200 font-medium text-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <item.icon className="w-4 h-4 mr-3" />
@@ -101,7 +102,7 @@ const Header = () => {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Link href="/contact" className="btn-primary w-full">
+                <Link href="/contact" className="btn-primary w-full text-sm py-2">
                   Get Started
                 </Link>
               </div>

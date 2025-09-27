@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: 'Learn Quran and Arabic online with professional teachers in a supportive, family-friendly environment. Join our comprehensive courses for all ages and levels.',
   keywords: 'Quran learning, Arabic courses, Islamic education, online classes, Tajweed, Hifz, children education',
   authors: [{ name: 'AlephLam' }],
-  viewport: 'width=device-width, initial-scale=1',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -28,6 +27,11 @@ export const metadata: Metadata = {
     ]
   },
   manifest: '/site.webmanifest'
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({

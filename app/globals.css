@@ -260,7 +260,8 @@
   }
 
   .islamic-decorative {
-    @apply absolute font-amiri text-islamic-gold opacity-10 text-8xl select-none pointer-events-none;
+    @apply absolute font-amiri text-islamic-gold opacity-10 select-none pointer-events-none;
+    font-size: clamp(3rem, 8vw, 8rem);
   }
 
   .islamic-decorative.top-right {
@@ -272,12 +273,14 @@
   }
 
   .islamic-card {
-    @apply relative bg-gray-50 rounded-2xl border-l-4 border-islamic-gold transition-all duration-300 overflow-hidden;
+    @apply relative bg-gray-50 rounded-xl sm:rounded-2xl border-l-4 border-islamic-gold transition-all duration-300 overflow-hidden;
   }
 
   .islamic-card::before {
     content: '';
-    @apply absolute top-0 right-0 w-16 h-16 opacity-10;
+    @apply absolute top-0 right-0 opacity-10;
+    width: clamp(2rem, 4vw, 4rem);
+    height: clamp(2rem, 4vw, 4rem);
     background: linear-gradient(135deg, theme('colors.islamic.gold'), theme('colors.islamic.blue'));
     clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
   }
@@ -310,7 +313,44 @@
   }
 
   .islamic-step-number {
-    @apply inline-block w-12 h-12 text-white rounded-full leading-[3rem] font-semibold text-xl;
+    @apply inline-block text-white rounded-full font-semibold;
+    width: clamp(2.5rem, 6vw, 3rem);
+    height: clamp(2.5rem, 6vw, 3rem);
+    line-height: clamp(2.5rem, 6vw, 3rem);
+    font-size: clamp(1rem, 3vw, 1.25rem);
     background: linear-gradient(135deg, theme('colors.islamic.gold'), theme('colors.islamic.blue'));
+  }
+
+  /* Scrollbar utilities */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .h-12 {
+    height: 3rem;
+  }
+
+  .h-16 {
+    height: 4rem;
   }
 }

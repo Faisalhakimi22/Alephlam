@@ -53,19 +53,19 @@ const Hero = ({ onQuizClick }: HeroProps) => {
         />
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center min-h-screen pt-0 pb-20">
+      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center min-h-screen pt-0 pb-16 sm:pb-20">
           {/* Left Content */}
           <motion.div
             variants={stagger}
             initial="initial"
             animate="animate"
-            className="space-y-10"
+            className="space-y-6 sm:space-y-8 lg:space-y-10 order-2 lg:order-1"
           >
 
             {/* Main Heading */}
-            <motion.div variants={fadeInUp} className="space-y-8">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <motion.div variants={fadeInUp} className="space-y-4 sm:space-y-6 lg:space-y-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-secondary">
                   Learn 
                 </span>
@@ -81,7 +81,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
                 </span>
               </h1>
               
-              <div className="space-y-6 text-lg leading-relaxed max-w-2xl">
+              <div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed max-w-2xl">
                 <p className="text-gray-700 font-medium">
                   We believe learning the Quran and Arabic should feel{' '}
                   <span className="text-primary font-semibold">natural and uplifting</span>. That's why our online classes are built around{' '}
@@ -102,20 +102,20 @@ const Hero = ({ onQuizClick }: HeroProps) => {
 
 
             {/* CTA Buttons */}
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 pt-6">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6">
               <Link 
                 href="/courses" 
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-teal-600 hover:from-primary-dark hover:to-teal-700 text-white font-semibold text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-teal-600 hover:from-primary-dark hover:to-teal-700 text-white font-semibold text-sm sm:text-base lg:text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 Start Learning Now
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               
               <button
                 onClick={onQuizClick}
-                className="group inline-flex items-center px-8 py-4 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-primary font-semibold text-lg rounded-2xl transition-all duration-300 border border-gray-200 hover:border-primary/30 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-primary font-semibold text-sm sm:text-base lg:text-lg rounded-2xl transition-all duration-300 border border-gray-200 hover:border-primary/30 shadow-lg hover:shadow-xl"
               >
-                <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                 Take Free Quiz
               </button>
             </motion.div>
@@ -126,11 +126,11 @@ const Hero = ({ onQuizClick }: HeroProps) => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
+            className="relative order-1 lg:order-2"
           >
 
             {/* Main Image */}
-            <div className="relative h-[500px] lg:h-[700px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white/50">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white/50">
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
               <Image
                 src="/pexels-thirdman-7956916.jpg"
