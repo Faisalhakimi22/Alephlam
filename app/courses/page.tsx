@@ -19,6 +19,7 @@ const CoursesPage = () => {
       price: '30€',
       duration: 'Monthly',
       level: 'Beginner',
+      step: 'Step 1 - Learn to Read Quran',
       features: ['Letter recognition', 'Word building', 'Basic Tajweed', 'Verse reading'],
       benefits: ['Proven method used worldwide', 'Step-by-step progression', 'Interactive learning', 'Regular assessments'],
       requirements: 'No prior knowledge required',
@@ -30,32 +31,23 @@ const CoursesPage = () => {
       price: '30€',
       duration: 'Monthly',
       level: 'Intermediate',
+      step: 'Step 1 - Learn to Read Quran',
       features: ['Advanced spelling', 'Tajweed rules', 'Verse recitation', 'Pronunciation'],
       benefits: ['Advanced reading skills', 'Tajweed mastery', 'Fluency improvement', 'Confidence building'],
       requirements: 'Basic Arabic letter knowledge',
       schedule: '2 sessions per week, 45 minutes each'
     },
     {
-      title: 'Tajweed Intensive - LIVE',
+      title: 'Tajweed Intensive (LIVE)',
       description: 'A comprehensive course covering all areas of Tajweed science. Learn different reading styles with focus on Hafs-an-Asim.',
       price: '30€',
       duration: 'Monthly',
       level: 'Advanced',
+      step: 'Step 1 - Learn to Read Quran',
       features: ['Complete Tajweed', 'Reading styles', 'Articulation points', 'Scientific approach'],
       benefits: ['Professional recitation', 'Multiple reading styles', 'Scientific understanding', 'Certification ready'],
       requirements: 'Intermediate Quran reading skills',
       schedule: '3 sessions per week, 60 minutes each'
-    },
-    {
-      title: 'Hifz-Al Quran',
-      description: 'For memorizing the Quran. Learn 1-2 verses per week with regular reviews and checks of previously learned material.',
-      price: '25€',
-      duration: 'Monthly',
-      level: 'All Levels',
-      features: ['Verse memorization', 'Regular reviews', 'Progress tracking', 'Personal guidance'],
-      benefits: ['Structured memorization', 'Long-term retention', 'Personal mentor', 'Progress monitoring'],
-      requirements: 'Basic Quran reading ability',
-      schedule: '3 sessions per week, 45 minutes each'
     },
     {
       title: 'Reading Correction',
@@ -63,10 +55,47 @@ const CoursesPage = () => {
       price: '25€',
       duration: 'Monthly',
       level: 'All Levels',
+      step: 'Step 1 - Learn to Read Quran',
       features: ['Pronunciation correction', 'Tajweed application', 'Fluency improvement', 'Personal feedback'],
       benefits: ['Improved pronunciation', 'Better fluency', 'Tajweed application', 'Personal attention'],
       requirements: 'Basic recitation ability',
       schedule: '2 sessions per week, 45 minutes each'
+    },
+    {
+      title: 'Hifz Al-Quran',
+      description: 'For memorizing the Quran. Learn 1-2 verses per week with regular reviews and checks of previously learned material.',
+      price: '25€',
+      duration: 'Monthly',
+      level: 'All Levels',
+      step: 'Step 2 - Memorization & Mastery',
+      features: ['Verse memorization', 'Regular reviews', 'Progress tracking', 'Personal guidance'],
+      benefits: ['Structured memorization', 'Long-term retention', 'Personal mentor', 'Progress monitoring'],
+      requirements: 'Basic Quran reading ability',
+      schedule: '3 sessions per week, 45 minutes each'
+    },
+    {
+      title: 'Tarjuma Al-Quran',
+      description: 'Word-for-word and overall translation of Quran. Focus on meaning while maintaining Tajweed in recitation.',
+      price: '30€',
+      duration: 'Monthly',
+      level: 'Intermediate & above',
+      step: 'Step 3 - Understanding the Quran',
+      features: ['Word-for-word translation', 'Overall meaning', 'Tajweed maintenance', 'Contextual understanding'],
+      benefits: ['Deep understanding', 'Meaningful recitation', 'Spiritual connection', 'Practical application'],
+      requirements: 'Intermediate Quran reading skills',
+      schedule: '2 sessions per week, 60 minutes each'
+    },
+    {
+      title: 'Tafseer Al-Quran',
+      description: 'In-depth explanation of verses (Asbab al-Nuzul, rulings, wisdom, and connections with daily life).',
+      price: '35€',
+      duration: 'Monthly',
+      level: 'Advanced learners, adults',
+      step: 'Step 3 - Understanding the Quran',
+      features: ['Asbab al-Nuzul', 'Rulings explanation', 'Wisdom extraction', 'Daily life connections'],
+      benefits: ['Deep spiritual insight', 'Practical wisdom', 'Advanced understanding', 'Life guidance'],
+      requirements: 'Advanced Quran knowledge',
+      schedule: '2 sessions per week, 90 minutes each'
     }
   ]
 
@@ -174,7 +203,12 @@ const CoursesPage = () => {
           </div>
           <div className="flex-1">
             <div className="flex items-start justify-between mb-2">
-              <h3 className="text-xl font-bold text-secondary font-amiri">{course.title}</h3>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-secondary font-amiri">{course.title}</h3>
+                {course.step && (
+                  <p className="text-sm text-primary font-semibold mt-1">{course.step}</p>
+                )}
+              </div>
               <div className="bg-gradient-to-r from-islamic-gold to-islamic-blue text-white px-3 py-1 rounded-lg font-bold text-sm ml-4 flex-shrink-0">
                 {course.price}
               </div>
@@ -297,7 +331,7 @@ const CoursesPage = () => {
             className="text-4xl font-bold text-secondary mb-12 flex items-center justify-center"
           >
             <BookOpen className="w-10 h-10 text-primary mr-4" />
-            Quran Courses
+            Quran Courses (7 courses)
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {quranCourses.map((course, index) => (
