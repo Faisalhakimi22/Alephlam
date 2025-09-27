@@ -32,7 +32,8 @@
     "eslint-config-next": "^14.0.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.0"
+    "typescript": "^5.2.0",
+    "wrangler": "^3.78.12"
   },
   "keywords": [
     "islamic",
