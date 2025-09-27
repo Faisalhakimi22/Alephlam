@@ -3,14 +3,16 @@ import { courseData } from '@/data/courseData'
 import CoursePageClient from './CoursePageClient'
 
 interface CoursePageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-const CoursePage = ({ params }: CoursePageProps) => {
+const CoursePage = async ({ params }: CoursePageProps) => {
+  // Await params in newer Next.js versions
+  const { slug } = await params
   // Find the course by slug on the server side
-  const course = courseData.find(c => c.slug === params.slug)
+  const course = courseData.find(c => c.slug === slug)
 
   if (!course) {
     return (
