@@ -1,0 +1,8 @@
+name = "alephlam"
+compatibility_date = "2025-09-27"
+
+[assets]
+directory = ".vercel/output/static"
+
+[build]
+command = "npm run pages:build"
