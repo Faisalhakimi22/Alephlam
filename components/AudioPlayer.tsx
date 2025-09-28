@@ -129,7 +129,7 @@ const AudioPlayer = ({ audioSrc, autoPlay = true }: AudioPlayerProps) => {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           onClick={() => setShowControls(true)}
-          className="fixed bottom-4 right-4 z-50 w-12 h-12 bg-primary hover:bg-primary-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110"
+          className="fixed bottom-4 right-4 z-50 w-12 h-12 bg-primary hover:bg-primary-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all"
         >
           <Volume2 className="w-5 h-5" />
         </motion.button>

@@ -99,7 +99,7 @@ const PagePreview = () => {
               <div className="mt-auto">
                 <Link 
                   href={page.href} 
-                  className={`inline-flex items-center justify-center w-full py-3 px-6 rounded-lg text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl bg-gradient-to-r ${page.color} hover:shadow-2xl`}
+                  className={`inline-flex items-center justify-center w-full py-3 px-6 rounded-lg text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl bg-gradient-to-r ${page.color} hover:shadow-2xl`}
                 >
                   Explore {page.title}
                   <ArrowRight className="ml-2 w-5 h-5" />

@@ -105,7 +105,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6">
               <Link 
                 href="/courses" 
-                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-teal-600 hover:from-primary-dark hover:to-teal-700 text-white font-semibold text-sm sm:text-base lg:text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-teal-600 hover:from-primary-dark hover:to-teal-700 text-white font-semibold text-sm sm:text-base lg:text-lg rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl"
               >
                 Start Learning Now
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -115,7 +115,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
                 onClick={onQuizClick}
                 className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-primary font-semibold text-sm sm:text-base lg:text-lg rounded-2xl transition-all duration-300 border border-gray-200 hover:border-primary/30 shadow-lg hover:shadow-xl"
               >
-                <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
+                <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform" />
                 Take Free Quiz
               </button>
             </motion.div>
@@ -136,7 +136,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
                 src="/pexels-thirdman-7956916.jpg"
                 alt="Islamic Learning Environment"
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
+                className="object-cover transition-transform duration-700"
                 priority
               />
             </div>

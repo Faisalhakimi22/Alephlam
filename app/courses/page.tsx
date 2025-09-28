@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { BookOpen, Users, Video, Star, Clock, ArrowRight, CheckCircle, GraduationCap, Award, Globe, Heart } from 'lucide-react'
+import { BookOpen, Users, Video, Star, Clock, ArrowRight, CheckCircle, GraduationCap, Award, Globe, Heart, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 
@@ -12,6 +13,16 @@ const CoursesPage = () => {
     threshold: 0.1,
   })
 
+  // State for horizontal scrolling
+  const [activeQuranCard, setActiveQuranCard] = useState(0)
+  const [activeArabicCard, setActiveArabicCard] = useState(0)
+  const [activeChildrenCard, setActiveChildrenCard] = useState(0)
+  
+  const quranScrollRef = useRef<HTMLDivElement>(null)
+  const arabicScrollRef = useRef<HTMLDivElement>(null)
+  const childrenScrollRef = useRef<HTMLDivElement>(null)
+
+  // Course data arrays
   const quranCourses = [
     {
       slug: 'nouraniyyah',
@@ -184,6 +195,93 @@ const CoursesPage = () => {
     }
   ]
 
+  // Track scroll position for Quran courses
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+    
+    const handleScroll = () => {
+      if (!quranScrollRef.current) return
+      
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        const scrollLeft = quranScrollRef.current!.scrollLeft
+        const cardWidth = 352
+        const newActiveCard = Math.round(scrollLeft / cardWidth)
+        
+        if (newActiveCard !== activeQuranCard && newActiveCard >= 0 && newActiveCard < quranCourses.length) {
+          setActiveQuranCard(newActiveCard)
+        }
+      }, 150)
+    }
+
+    const scrollContainer = quranScrollRef.current
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true })
+      return () => {
+        scrollContainer.removeEventListener('scroll', handleScroll)
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [activeQuranCard, quranCourses.length])
+
+  // Track scroll position for Arabic courses
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+    
+    const handleScroll = () => {
+      if (!arabicScrollRef.current) return
+      
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        const scrollLeft = arabicScrollRef.current!.scrollLeft
+        const cardWidth = 352
+        const newActiveCard = Math.round(scrollLeft / cardWidth)
+        
+        if (newActiveCard !== activeArabicCard && newActiveCard >= 0 && newActiveCard < arabicCourses.length) {
+          setActiveArabicCard(newActiveCard)
+        }
+      }, 150)
+    }
+
+    const scrollContainer = arabicScrollRef.current
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true })
+      return () => {
+        scrollContainer.removeEventListener('scroll', handleScroll)
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [activeArabicCard, arabicCourses.length])
+
+  // Track scroll position for Children courses
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout
+    
+    const handleScroll = () => {
+      if (!childrenScrollRef.current) return
+      
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        const scrollLeft = childrenScrollRef.current!.scrollLeft
+        const cardWidth = 352
+        const newActiveCard = Math.round(scrollLeft / cardWidth)
+        
+        if (newActiveCard !== activeChildrenCard && newActiveCard >= 0 && newActiveCard < childrenCourses.length) {
+          setActiveChildrenCard(newActiveCard)
+        }
+      }, 150)
+    }
+
+    const scrollContainer = childrenScrollRef.current
+    if (scrollContainer) {
+      scrollContainer.addEventListener('scroll', handleScroll, { passive: true })
+      return () => {
+        scrollContainer.removeEventListener('scroll', handleScroll)
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [activeChildrenCard, childrenCourses.length])
+
   const getIconForCourse = (course: any, type: string, index: number) => {
     const icons = [BookOpen, Star, Video, Users, GraduationCap, CheckCircle, Award, Heart]
     return icons[index % icons.length]
@@ -197,6 +295,101 @@ const CoursesPage = () => {
       'from-islamic-blue-dark to-islamic-gold-dark'
     ]
     return gradients[index % gradients.length]
+  }
+
+  // Scroll functions for horizontal navigation
+  const scrollToCard = (scrollRef: React.RefObject<HTMLDivElement>, direction: 'left' | 'right') => {
+    if (!scrollRef.current) return
+    
+    const cardWidth = 352 // Width of each card (320px + 32px margin)
+    const currentScroll = scrollRef.current.scrollLeft
+    const newScroll = direction === 'left' 
+      ? Math.max(0, currentScroll - cardWidth)
+      : currentScroll + cardWidth
+    
+    scrollRef.current.scrollTo({
+      left: newScroll,
+      behavior: 'smooth'
+    })
+  }
+
+  // Horizontal Course Card component for mobile/tablet
+  const HorizontalCourseCard = ({ course, index, isActive }: { course: any, index: number, isActive: boolean }) => {
+    const getCourseSlug = (course: any) => {
+      return course.slug || course.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+    }
+    
+    return (
+      <div className="flex-shrink-0 w-80 mx-4 h-96">
+        <Link href={`/courses/${getCourseSlug(course)}`} className="block h-full">
+          <div
+            className={`islamic-card p-6 cursor-pointer h-full flex flex-col transition-all duration-300 ${
+              isActive ? 'shadow-2xl' : 'shadow-lg'
+            }`}
+          >
+            <div className="flex items-start space-x-4 h-full">
+              <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${getGradientForCourse(index)} rounded-xl flex items-center justify-center`}>
+                {(() => {
+                  const IconComponent = getIconForCourse(course, course.type || 'quran', index)
+                  return <IconComponent className="w-6 h-6 text-white" />
+                })()}
+              </div>
+              <div className="flex-1 flex flex-col h-full">
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-xl font-bold text-secondary font-amiri leading-tight">{course.title}</h3>
+                  <div className="bg-gradient-to-r from-islamic-gold to-islamic-blue text-white px-3 py-1.5 rounded-lg font-bold text-sm ml-4 flex-shrink-0">
+                    {course.price}
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                  <div className="flex items-center">
+                    <Clock className="w-4 h-4 mr-1.5" />
+                    {course.duration}
+                  </div>
+                  <div className="flex items-center">
+                    <Users className="w-4 h-4 mr-1.5" />
+                    {course.level || course.age}
+                  </div>
+                </div>
+                
+                <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2 h-12">
+                  {course.description}
+                </p>
+                
+                <div className="flex-1 mb-4">
+                  <h4 className="font-semibold text-secondary mb-2 text-sm font-amiri">Key Features:</h4>
+                  <div className="space-y-1">
+                    {course.features.slice(0, 2).map((feature: string, featureIndex: number) => (
+                      <div key={featureIndex} className="flex items-center text-gray-600">
+                        <div className="w-3 h-3 bg-islamic-gold/10 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                          <Star className="w-1.5 h-1.5 text-islamic-gold fill-current" />
+                        </div>
+                        <span className="text-xs">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="mt-auto">
+                  <button 
+                    className="w-full bg-gradient-to-r from-islamic-gold to-islamic-blue text-white py-2.5 px-4 rounded-lg font-semibold text-sm shadow-lg flex items-center justify-center gap-2 hover:from-islamic-gold-dark hover:to-islamic-blue-dark transition-all duration-300"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      window.location.href = `/book-course?course=${getCourseSlug(course)}`
+                    }}
+                  >
+                    Enroll Now
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </div>
+    )
   }
 
   const CourseCard = ({ course, type, index }: { course: any, type: string, index: number }) => {
@@ -351,10 +544,84 @@ const CoursesPage = () => {
             <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
             <span className="text-center">Quran Courses (7 courses)</span>
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          
+          {/* Desktop Grid View */}
+          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {quranCourses.map((course, index) => (
               <CourseCard key={course.title} course={course} type="quran" index={index} />
             ))}
+          </div>
+
+          {/* Mobile/Tablet Horizontal Scroll */}
+          <div className="lg:hidden relative">
+            {/* Navigation Arrows */}
+            <motion.button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg border border-gray-200 hover:bg-white transition-all duration-300"
+              onClick={() => scrollToCard(quranScrollRef, 'left')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronLeft className="w-6 h-6 text-secondary" />
+            </motion.button>
+            
+            <motion.button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg border border-gray-200 hover:bg-white transition-all duration-300"
+              onClick={() => scrollToCard(quranScrollRef, 'right')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronRight className="w-6 h-6 text-secondary" />
+            </motion.button>
+
+            {/* Scrollable Container */}
+            <div
+              ref={quranScrollRef}
+              className="flex overflow-x-auto scrollbar-hide gap-8 pb-6 px-12"
+              style={{
+                scrollSnapType: 'x mandatory',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                scrollBehavior: 'smooth'
+              }}
+            >
+              {quranCourses.map((course, index) => (
+                <div
+                  key={`quran-${course.title}-${index}`}
+                  style={{ scrollSnapAlign: 'center' }}
+                >
+                  <HorizontalCourseCard 
+                    course={course} 
+                    index={index} 
+                    isActive={activeQuranCard === index}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Scroll Indicators */}
+            <div className="flex justify-center mt-8 gap-2">
+              {quranCourses.map((_, index) => (
+                <motion.button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    activeQuranCard === index 
+                      ? 'bg-gradient-to-r from-islamic-gold to-islamic-blue scale-125' 
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  onClick={() => {
+                    setActiveQuranCard(index)
+                    if (quranScrollRef.current) {
+                      quranScrollRef.current.scrollTo({
+                        left: index * 352,
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -371,10 +638,84 @@ const CoursesPage = () => {
             <Video className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
             <span className="text-center">Arabic Language Courses</span>
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          
+          {/* Desktop Grid View */}
+          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {arabicCourses.map((course, index) => (
               <CourseCard key={course.title} course={course} type="arabic" index={index} />
             ))}
+          </div>
+
+          {/* Mobile/Tablet Horizontal Scroll */}
+          <div className="lg:hidden relative">
+            {/* Navigation Arrows */}
+            <motion.button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg border border-gray-200 hover:bg-white transition-all duration-300"
+              onClick={() => scrollToCard(arabicScrollRef, 'left')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronLeft className="w-6 h-6 text-secondary" />
+            </motion.button>
+            
+            <motion.button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg border border-gray-200 hover:bg-white transition-all duration-300"
+              onClick={() => scrollToCard(arabicScrollRef, 'right')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronRight className="w-6 h-6 text-secondary" />
+            </motion.button>
+
+            {/* Scrollable Container */}
+            <div
+              ref={arabicScrollRef}
+              className="flex overflow-x-auto scrollbar-hide gap-8 pb-6 px-12"
+              style={{
+                scrollSnapType: 'x mandatory',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                scrollBehavior: 'smooth'
+              }}
+            >
+              {arabicCourses.map((course, index) => (
+                <div
+                  key={`arabic-${course.title}-${index}`}
+                  style={{ scrollSnapAlign: 'center' }}
+                >
+                  <HorizontalCourseCard 
+                    course={course} 
+                    index={index} 
+                    isActive={activeArabicCard === index}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Scroll Indicators */}
+            <div className="flex justify-center mt-8 gap-2">
+              {arabicCourses.map((_, index) => (
+                <motion.button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    activeArabicCard === index 
+                      ? 'bg-gradient-to-r from-islamic-gold to-islamic-blue scale-125' 
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  onClick={() => {
+                    setActiveArabicCard(index)
+                    if (arabicScrollRef.current) {
+                      arabicScrollRef.current.scrollTo({
+                        left: index * 352,
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -391,10 +732,84 @@ const CoursesPage = () => {
             <Users className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
             <span className="text-center">AlephLam Kids</span>
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          
+          {/* Desktop Grid View */}
+          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {childrenCourses.map((course, index) => (
               <CourseCard key={course.title} course={course} type="children" index={index} />
             ))}
+          </div>
+
+          {/* Mobile/Tablet Horizontal Scroll */}
+          <div className="lg:hidden relative">
+            {/* Navigation Arrows */}
+            <motion.button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg border border-gray-200 hover:bg-white transition-all duration-300"
+              onClick={() => scrollToCard(childrenScrollRef, 'left')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronLeft className="w-6 h-6 text-secondary" />
+            </motion.button>
+            
+            <motion.button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg border border-gray-200 hover:bg-white transition-all duration-300"
+              onClick={() => scrollToCard(childrenScrollRef, 'right')}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ChevronRight className="w-6 h-6 text-secondary" />
+            </motion.button>
+
+            {/* Scrollable Container */}
+            <div
+              ref={childrenScrollRef}
+              className="flex overflow-x-auto scrollbar-hide gap-8 pb-6 px-12"
+              style={{
+                scrollSnapType: 'x mandatory',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                scrollBehavior: 'smooth'
+              }}
+            >
+              {childrenCourses.map((course, index) => (
+                <div
+                  key={`children-${course.title}-${index}`}
+                  style={{ scrollSnapAlign: 'center' }}
+                >
+                  <HorizontalCourseCard 
+                    course={course} 
+                    index={index} 
+                    isActive={activeChildrenCard === index}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Scroll Indicators */}
+            <div className="flex justify-center mt-8 gap-2">
+              {childrenCourses.map((_, index) => (
+                <motion.button
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    activeChildrenCard === index 
+                      ? 'bg-gradient-to-r from-islamic-gold to-islamic-blue scale-125' 
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  onClick={() => {
+                    setActiveChildrenCard(index)
+                    if (childrenScrollRef.current) {
+                      childrenScrollRef.current.scrollTo({
+                        left: index * 352,
+                        behavior: 'smooth'
+                      })
+                    }
+                  }}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -96,7 +96,7 @@ const GlobalAudioPlayer = () => {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           onMouseEnter={() => setShowControls(true)}
-          className="w-12 h-12 bg-primary hover:bg-primary-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110"
+          className="w-12 h-12 bg-primary hover:bg-primary-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all"
           title="Show audio controls"
         >
           <Volume2 className="w-5 h-5" />

@@ -59,20 +59,20 @@ const Courses = () => {
 
   const getIconForCourse = (course: any, type: string) => {
     if (type === 'quran') {
-      if (course.title.includes('Nouraniyyah')) return <BookOpen className="w-6 h-6 text-white" />
-      if (course.title.includes('Noorul-Bayaan')) return <Star className="w-6 h-6 text-white" />
-      if (course.title.includes('Tajweed')) return <Video className="w-6 h-6 text-white" />
-      if (course.title.includes('Hifz')) return <Users className="w-6 h-6 text-white" />
-      return <Clock className="w-6 h-6 text-white" />
+      if (course.title.includes('Nouraniyyah')) return BookOpen
+      if (course.title.includes('Noorul-Bayaan')) return Star
+      if (course.title.includes('Tajweed')) return Video
+      if (course.title.includes('Hifz')) return Users
+      return Clock
     }
     if (type === 'arabic') {
-      return course.title.includes('Madina') ? <BookOpen className="w-6 h-6 text-white" /> : <Video className="w-6 h-6 text-white" />
+      return course.title.includes('Madina') ? BookOpen : Video
     }
     // Children courses
-    if (course.title.includes('Alif Ba')) return <BookOpen className="w-6 h-6 text-white" />
-    if (course.title.includes('Tajweed')) return <Star className="w-6 h-6 text-white" />
-    if (course.title.includes('Hifz')) return <Users className="w-6 h-6 text-white" />
-    return <Clock className="w-6 h-6 text-white" />
+    if (course.title.includes('Alif Ba')) return BookOpen
+    if (course.title.includes('Tajweed')) return Star
+    if (course.title.includes('Hifz')) return Users
+    return Clock
   }
 
   const getGradientForCourse = (course: any, type: string, index: number) => {
@@ -113,12 +113,15 @@ const Courses = () => {
         <Link href={`/courses/${courseSlug}`} className="block h-full">
           <div
             className={`islamic-card p-6 cursor-pointer h-full flex flex-col transition-all duration-300 ${
-              isActive ? 'shadow-2xl scale-105' : 'shadow-lg scale-100'
+              isActive ? 'shadow-2xl' : 'shadow-lg'
             }`}
           >
             <div className="flex items-start space-x-4 h-full">
               <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${getGradientForCourse(course, course.type, index)} rounded-xl flex items-center justify-center`}>
-                {getIconForCourse(course, course.type)}
+                {(() => {
+                  const IconComponent = getIconForCourse(course, course.type)
+                  return <IconComponent className="w-6 h-6 text-white" />
+                })()}
               </div>
               <div className="flex-1 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-3">
@@ -159,7 +162,7 @@ const Courses = () => {
                 
                 <div className="mt-auto">
                   <button 
-                    className="w-full bg-gradient-to-r from-islamic-gold to-islamic-blue text-white py-2.5 px-4 rounded-lg font-semibold text-sm shadow-lg flex items-center justify-center gap-2 hover:from-islamic-gold-dark hover:to-islamic-blue-dark transition-all duration-300 transform hover:scale-105"
+                    className="w-full bg-gradient-to-r from-islamic-gold to-islamic-blue text-white py-2.5 px-4 rounded-lg font-semibold text-sm shadow-lg flex items-center justify-center gap-2 hover:from-islamic-gold-dark hover:to-islamic-blue-dark transition-all duration-300"
                     onClick={(e) => {
                       e.preventDefault()
                       e.stopPropagation()
