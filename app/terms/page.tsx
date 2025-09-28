@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FileText, Users, CreditCard, Shield, AlertTriangle, CheckCircle, Clock, Globe } from 'lucide-react'
 import Footer from '@/components/Footer'
+import { Mail, Phone, MapPin, MessageCircle, Volume2 } from 'lucide-react'
 
 const TermsPage = () => {
   const [ref, inView] = useInView({
