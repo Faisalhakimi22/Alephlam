@@ -67,24 +67,24 @@ const ContactForm = () => {
   ]
 
   return (
-    <section className="bg-accent section-padding" id="contact">
+    <section className="bg-accent py-8 sm:py-12 lg:py-16 px-4" id="contact">
       <div className="container-custom">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-3 sm:mb-4 md:mb-6">
             Contact <span className="text-gradient">Us</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2 sm:px-4 md:px-0">
             Get in touch with us for any questions about our courses, enrollment, or to join our waiting list. We're here to help you on your learning journey.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

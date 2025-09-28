@@ -3,11 +3,11 @@ import Image from 'next/image'
 
 const Features = () => {
   return (
-    <section className="bg-gradient-to-br from-gray-50 via-white to-teal-50/30 py-12 sm:py-16 lg:py-20" id="about">
+    <section className="bg-gradient-to-br from-gray-50 via-white to-teal-50/30 py-8 sm:py-12 lg:py-16" id="about">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Islamic Border Container */}
-        <div className="islamic-border p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 mb-12 sm:mb-16 lg:mb-20">
+        <div className="islamic-border p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 mb-8 sm:mb-12 lg:mb-16">
           <div className="geometric-border"></div>
           <div className="pattern-overlay"></div>
 
@@ -29,16 +29,16 @@ const Features = () => {
           </div>
 
           {/* Main Content Section */}
-          <div className="mb-12 sm:mb-16 lg:mb-20 relative z-10">
+          <div className="mb-8 sm:mb-12 lg:mb-16 relative z-10">
 
             {/* Header */}
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary leading-tight font-amiri mb-3 sm:mb-4 md:mb-6">
+            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-secondary leading-tight font-amiri mb-2 sm:mb-3 md:mb-4">
                 Our Teaching
                 <span className="bg-gradient-to-r from-islamic-gold to-islamic-blue bg-clip-text text-transparent"> Values</span>
               </h2>
 
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto px-2 sm:px-4 md:px-0">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto px-2 sm:px-4 md:px-0">
                 At AlephLam, we've crafted a unique approach to Islamic education that puts{' '}
                 <span className="text-islamic-gold font-semibold">comfort, understanding, and family bonds</span> at the heart of learning.
               </p>
@@ -105,36 +105,36 @@ const Features = () => {
           </div>
 
           {/* Teaching Method Section */}
-          <div className="bg-gradient-to-r from-islamic-blue/5 to-islamic-gold/5 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 relative z-10">
-            <div className="text-center mb-6 sm:mb-8 md:mb-12">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-2 sm:mb-3 md:mb-4 font-amiri">
+          <div className="bg-gradient-to-r from-islamic-blue/5 to-islamic-gold/5 rounded-xl sm:rounded-2xl md:rounded-3xl p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 relative z-10">
+            <div className="text-center mb-4 sm:mb-6 md:mb-8">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-secondary mb-2 sm:mb-3 md:mb-4 font-amiri">
                 How We Teach
               </h3>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto italic px-2 sm:px-4 md:px-0">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 max-w-3xl mx-auto italic px-2 sm:px-4 md:px-0">
                 Our time-tested methodology combines traditional Islamic education with modern teaching techniques
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-              <div className="glass-card p-4 sm:p-6 md:p-8 text-center">
-                <div className="islamic-step-number mb-3 sm:mb-4 md:mb-6 mx-auto">1</div>
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-secondary mb-2 sm:mb-3 font-amiri">Assessment & Goal Setting</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+              <div className="glass-card p-3 sm:p-4 md:p-6 lg:p-8 text-center">
+                <div className="islamic-step-number mb-2 sm:mb-3 md:mb-4 lg:mb-6 mx-auto">1</div>
+                <h4 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-secondary mb-2 sm:mb-3 font-amiri">Assessment & Goal Setting</h4>
                 <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
                   We begin by understanding your current level and learning objectives, creating a personalized roadmap for your Quranic journey.
                 </p>
               </div>
 
-              <div className="glass-card p-4 sm:p-6 md:p-8 text-center">
-                <div className="islamic-step-number mb-3 sm:mb-4 md:mb-6 mx-auto">2</div>
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-secondary mb-2 sm:mb-3 font-amiri">Interactive Learning</h4>
+              <div className="glass-card p-3 sm:p-4 md:p-6 lg:p-8 text-center">
+                <div className="islamic-step-number mb-2 sm:mb-3 md:mb-4 lg:mb-6 mx-auto">2</div>
+                <h4 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-secondary mb-2 sm:mb-3 font-amiri">Interactive Learning</h4>
                 <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
                   Through live sessions, we engage students with interactive recitation, comprehension exercises, and practical applications of Islamic teachings.
                 </p>
               </div>
 
-              <div className="glass-card p-4 sm:p-6 md:p-8 text-center sm:col-span-2 lg:col-span-1">
-                <div className="islamic-step-number mb-3 sm:mb-4 md:mb-6 mx-auto">3</div>
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-secondary mb-2 sm:mb-3 font-amiri">Continuous Support</h4>
+              <div className="glass-card p-3 sm:p-4 md:p-6 lg:p-8 text-center sm:col-span-2 lg:col-span-1">
+                <div className="islamic-step-number mb-2 sm:mb-3 md:mb-4 lg:mb-6 mx-auto">3</div>
+                <h4 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-secondary mb-2 sm:mb-3 font-amiri">Continuous Support</h4>
                 <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
                   Regular feedback, recorded sessions for review, and ongoing mentorship ensure steady progress and long-term retention.
                 </p>

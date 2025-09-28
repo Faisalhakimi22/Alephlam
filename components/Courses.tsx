@@ -183,19 +183,19 @@ const Courses = () => {
   }
 
   return (
-    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8" id="courses">
+    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8" id="courses">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4 md:mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-secondary mb-3 sm:mb-4 md:mb-6">
             Our <span className="text-gradient">Courses</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto px-2 sm:px-4 md:px-0">
             Discover our comprehensive range of courses designed for all ages and levels. Experience modern learning with interactive, engaging content.
           </p>
         </motion.div>
@@ -277,9 +277,9 @@ const Courses = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 md:mt-20"
+          className="mt-12 sm:mt-16 lg:mt-20"
         >
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {/* Quran Courses Summary */}
             <motion.div
               className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg"
@@ -335,9 +335,9 @@ const Courses = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 md:mt-20 relative"
+          className="mt-12 sm:mt-16 lg:mt-20 relative"
         >
-          <div className="glass-card-gradient bg-gradient-to-r from-secondary to-secondary-light rounded-3xl p-8 md:p-12 text-white text-center relative overflow-hidden">
+          <div className="glass-card-gradient bg-gradient-to-r from-secondary to-secondary-light rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 text-white text-center relative overflow-hidden">
             {/* Animated background elements */}
             <motion.div
               className="absolute top-0 left-0 w-full h-full opacity-10"
@@ -352,25 +352,25 @@ const Courses = () => {
             />
             
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">
                 Ready to Start Your Learning Journey?
               </h3>
-              <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 md:mb-10">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
                 Join hundreds of students who have already transformed their Quran and Arabic learning experience with AlephLam's modern approach.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <motion.button
-                  className="btn-large bg-gradient-to-r from-islamic-gold to-islamic-blue hover:from-islamic-gold-dark hover:to-islamic-blue-dark text-white border-0 shadow-lg"
+                  className="btn bg-gradient-to-r from-islamic-gold to-islamic-blue hover:from-islamic-gold-dark hover:to-islamic-blue-dark text-white border-0 shadow-lg text-sm py-2.5 px-4"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Book Your Course
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-4 h-4" />
                 </motion.button>
                 
                 <motion.button
-                  className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary backdrop-blur-sm"
+                  className="btn border-2 border-white text-white hover:bg-white hover:text-secondary backdrop-blur-sm text-sm py-2.5 px-4"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >

@@ -56,19 +56,19 @@ const Testimonials = () => {
   ]
 
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8" id="testimonials">
+    <section className="bg-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8" id="testimonials">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-3 sm:mb-4 md:mb-6">
             What Our <span className="text-gradient">Students Say</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2 sm:px-4 md:px-0">
             Don't just take our word for it. Here's what our students and their families have to say about their learning experience with AlephLam.
           </p>
         </motion.div>
@@ -125,34 +125,34 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 sm:mt-16 glass-card-gradient bg-gradient-to-r from-primary to-primary-light rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-white text-center relative z-10"
+          className="mt-8 sm:mt-12 lg:mt-16 glass-card-gradient bg-gradient-to-r from-primary to-primary-light rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 text-white text-center relative z-10"
         >
-          <div className="flex items-center justify-center mb-3 sm:mb-4">
+          <div className="flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 sm:w-8 sm:h-8 text-white fill-current" />
+              <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white fill-current" />
             ))}
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-1 sm:mb-2">
             4.9/5 Average Rating
           </h3>
-          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-4 sm:mb-6">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-3 sm:mb-4 md:mb-6">
             Based on 500+ student reviews
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             <div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">500+</div>
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1">500+</div>
               <div className="text-white/80 text-xs sm:text-sm md:text-base">Happy Students</div>
             </div>
             <div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">50+</div>
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1">50+</div>
               <div className="text-white/80 text-xs sm:text-sm md:text-base">Expert Teachers</div>
             </div>
             <div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">15+</div>
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1">15+</div>
               <div className="text-white/80 text-xs sm:text-sm md:text-base">Course Types</div>
             </div>
             <div>
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-1">99%</div>
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1">99%</div>
               <div className="text-white/80 text-xs sm:text-sm md:text-base">Satisfaction Rate</div>
             </div>
           </div>

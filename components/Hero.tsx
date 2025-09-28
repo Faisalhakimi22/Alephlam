@@ -24,7 +24,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50 -mt-28 pt-28">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50 -mt-28 pt-24 sm:pt-28 lg:pt-32">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div 
@@ -37,7 +37,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
             repeat: Infinity, 
             ease: "linear" 
           }}
-          className="absolute top-10 right-10 w-72 h-72 bg-gradient-to-r from-primary/10 to-teal-400/10 rounded-full blur-3xl"
+          className="absolute top-10 right-10 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-r from-primary/10 to-teal-400/10 rounded-full blur-3xl"
         />
         <motion.div 
           animate={{ 
@@ -49,12 +49,12 @@ const Hero = ({ onQuizClick }: HeroProps) => {
             repeat: Infinity, 
             ease: "linear" 
           }}
-          className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-secondary/5 to-primary/5 rounded-full blur-3xl"
+          className="absolute bottom-20 left-10 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-secondary/5 to-primary/5 rounded-full blur-3xl"
         />
       </div>
 
       <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center min-h-screen pt-0 pb-16 sm:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-20 items-center min-h-screen pt-4 sm:pt-6 lg:pt-8 pb-12 sm:pb-16 lg:pb-20">
           {/* Left Content */}
           <motion.div
             variants={stagger}
@@ -64,8 +64,8 @@ const Hero = ({ onQuizClick }: HeroProps) => {
           >
 
             {/* Main Heading */}
-            <motion.div variants={fadeInUp} className="space-y-4 sm:space-y-6 lg:space-y-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+            <motion.div variants={fadeInUp} className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight">
                 <span className="text-secondary">
                   Learn 
                 </span>
@@ -81,7 +81,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
                 </span>
               </h1>
               
-              <div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed max-w-2xl">
+              <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl">
                 <p className="text-gray-700 font-medium">
                   We believe learning the Quran and Arabic should feel{' '}
                   <span className="text-primary font-semibold">natural and uplifting</span>. That's why our online classes are built around{' '}
@@ -102,10 +102,10 @@ const Hero = ({ onQuizClick }: HeroProps) => {
 
 
             {/* CTA Buttons */}
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 pt-3 sm:pt-4 md:pt-6">
               <Link 
                 href="/courses" 
-                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-teal-600 hover:from-primary-dark hover:to-teal-700 text-white font-semibold text-sm sm:text-base lg:text-lg rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl"
+                className="group inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-primary to-teal-600 hover:from-primary-dark hover:to-teal-700 text-white font-semibold text-sm sm:text-base md:text-lg rounded-2xl transition-all duration-300 shadow-xl hover:shadow-2xl"
               >
                 Start Learning Now
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -113,7 +113,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
               
               <button
                 onClick={onQuizClick}
-                className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-primary font-semibold text-sm sm:text-base lg:text-lg rounded-2xl transition-all duration-300 border border-gray-200 hover:border-primary/30 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center justify-center px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-primary font-semibold text-sm sm:text-base md:text-lg rounded-2xl transition-all duration-300 border border-gray-200 hover:border-primary/30 shadow-lg hover:shadow-xl"
               >
                 <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform" />
                 Take Free Quiz
@@ -130,7 +130,7 @@ const Hero = ({ onQuizClick }: HeroProps) => {
           >
 
             {/* Main Image */}
-            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white/50">
+            <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 md:border-8 border-white/50">
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
               <Image
                 src="/pexels-thirdman-7956916.jpg"

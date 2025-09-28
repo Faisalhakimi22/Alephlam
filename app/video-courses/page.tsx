@@ -255,114 +255,114 @@ const VideoCoursesPage = () => {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
-       {/* Hero Section */}
+      {/* Hero Section */}
        <section className="bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark text-white py-12 sm:py-16 lg:py-20">
-         <div className="container-custom px-4 sm:px-6 lg:px-8 text-center">
-           <motion.div
-             ref={ref}
-             initial={{ opacity: 0, y: 50 }}
-             animate={inView ? { opacity: 1, y: 0 } : {}}
-             transition={{ duration: 0.8 }}
-             className="max-w-4xl mx-auto"
-           >
+        <div className="container-custom px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">
-               <span className="text-primary">Video</span> Courses
-             </h1>
+              <span className="text-primary">Video</span> Courses
+            </h1>
              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 leading-relaxed mb-4 sm:mb-6 md:mb-8 px-2 sm:px-0">
                Learn at your own pace with our comprehensive video courses. Perfect for busy schedules and self-paced learning.
-             </p>
+            </p>
              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center max-w-sm sm:max-w-md md:max-w-none mx-auto">
                <a href="#courses" className="btn bg-primary hover:bg-primary-dark text-white border-0 text-sm py-2.5 px-4">
-                 Browse Courses
+                Browse Courses
                  <ArrowRight className="ml-2 w-4 h-4" />
-               </a>
+              </a>
                <Link href="/contact" className="btn border-2 border-white text-white hover:bg-white hover:text-secondary text-sm py-2.5 px-4">
-                 Get Started
-               </Link>
-             </div>
-           </motion.div>
-         </div>
-       </section>
+                Get Started
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-       {/* Learning Features */}
+      {/* Learning Features */}
        <section className="bg-white py-8 sm:py-12 lg:py-16">
-         <div className="container-custom px-4 sm:px-6 lg:px-8">
-           <motion.h2
-             initial={{ opacity: 0, y: 50 }}
-             animate={inView ? { opacity: 1, y: 0 } : {}}
-             transition={{ duration: 0.8, delay: 0.2 }}
-             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 text-center"
-           >
-             Why Choose <span className="text-gradient">Video Learning</span>
-           </motion.h2>
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-             {learningFeatures.map((feature, index) => {
-               const gradients = [
-                 'from-islamic-gold to-islamic-gold-light',
-                 'from-islamic-blue to-islamic-blue-light',
-                 'from-islamic-gold to-islamic-blue',
-                 'from-islamic-blue-dark to-islamic-gold-dark'
-               ]
-               const gradient = gradients[index % gradients.length]
-               
-               return (
-                 <motion.div
-                   key={feature.title}
-                   initial={{ opacity: 0, y: 30 }}
-                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                   className="islamic-card p-4 sm:p-6 text-center"
-                 >
-                   <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4`}>
-                     <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                   </div>
-                   <h3 className="text-base sm:text-lg lg:text-xl font-bold text-secondary mb-2 font-amiri">{feature.title}</h3>
-                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{feature.description}</p>
-                 </motion.div>
-               )
-             })}
-           </div>
-         </div>
-       </section>
-
-       {/* Platform Features */}
-       <section className="bg-accent py-8 sm:py-12 lg:py-16">
-         <div className="container-custom px-4 sm:px-6 lg:px-8">
-           <motion.h2
-             initial={{ opacity: 0, y: 50 }}
-             animate={inView ? { opacity: 1, y: 0 } : {}}
-             transition={{ duration: 0.8, delay: 0.4 }}
-             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 text-center"
-           >
-             Learning <span className="text-gradient">Platform Features</span>
-           </motion.h2>
-           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-             {platformFeatures.map((feature, index) => (
-               <motion.div
-                 key={index}
-                 initial={{ opacity: 0, y: 30 }}
-                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                 className="glass-card p-3 sm:p-4 lg:p-6 text-center relative z-10"
-               >
-                 <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 shadow-lg">
-                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
-                 </div>
-                 <p className="text-gray-600 font-medium text-xs sm:text-sm lg:text-base">{feature}</p>
-               </motion.div>
-             ))}
-           </div>
-         </div>
-       </section>
-
-      {/* Video Courses */}
-      <section className="bg-white section-padding" id="courses">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}} 
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 text-center"
+          >
+            Why Choose <span className="text-gradient">Video Learning</span>
+          </motion.h2>
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
+            {learningFeatures.map((feature, index) => {
+              const gradients = [
+                'from-islamic-gold to-islamic-gold-light',
+                'from-islamic-blue to-islamic-blue-light',
+                'from-islamic-gold to-islamic-blue',
+                'from-islamic-blue-dark to-islamic-gold-dark'
+              ]
+              const gradient = gradients[index % gradients.length]
+              
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                   className="islamic-card p-4 sm:p-6 text-center"
+                >
+                   <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${gradient} rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4`}>
+                     <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                   <h3 className="text-base sm:text-lg lg:text-xl font-bold text-secondary mb-2 font-amiri">{feature.title}</h3>
+                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Features */}
+       <section className="bg-accent py-8 sm:py-12 lg:py-16">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 text-center"
+          >
+            Learning <span className="text-gradient">Platform Features</span>
+          </motion.h2>
+           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+            {platformFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                 className="glass-card p-3 sm:p-4 lg:p-6 text-center relative z-10"
+              >
+                 <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 shadow-lg">
+                   <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+                </div>
+                 <p className="text-gray-600 font-medium text-xs sm:text-sm lg:text-base">{feature}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Courses */}
+      <section className="bg-white py-8 sm:py-12 lg:py-16 px-4" id="courses">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 text-center"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 text-center"
           >
             Our <span className="text-gradient">Video Courses</span>
           </motion.h2>
@@ -539,61 +539,61 @@ const VideoCoursesPage = () => {
       </section>
 
       {/* Learning Progress Section */}
-      <section className="bg-accent section-padding">
+      <section className="bg-accent py-8 sm:py-12 lg:py-16 px-4">
         <div className="container-custom">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-4xl font-bold text-secondary mb-12 text-center"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 text-center"
           >
             Track Your <span className="text-gradient">Learning Progress</span>
           </motion.h2>
-          <div className="grid-cards-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="glass-card p-8 text-center"
+              className="glass-card p-4 sm:p-6 lg:p-8 text-center"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <TrendingUp className="w-10 h-10 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg">
+                <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-secondary mb-3">Progress Tracking</h3>
-              <p className="text-gray-600">Monitor your learning journey with detailed progress reports and achievement badges.</p>
+              <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-secondary mb-2 sm:mb-3">Progress Tracking</h3>
+              <p className="text-xs sm:text-sm lg:text-base text-gray-600">Monitor your learning journey with detailed progress reports and achievement badges.</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="glass-card p-8 text-center"
+              className="glass-card p-4 sm:p-6 lg:p-8 text-center"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Globe className="w-10 h-10 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg">
+                <Globe className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-secondary mb-3">Global Community</h3>
-              <p className="text-gray-600">Connect with learners worldwide, share experiences, and get support from peers.</p>
+              <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-secondary mb-2 sm:mb-3">Global Community</h3>
+              <p className="text-xs sm:text-sm lg:text-base text-gray-600">Connect with learners worldwide, share experiences, and get support from peers.</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.0 }}
-              className="glass-card p-8 text-center"
+              className="glass-card p-4 sm:p-6 lg:p-8 text-center"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Zap className="w-10 h-10 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg">
+                <Zap className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-secondary mb-3">Instant Access</h3>
-              <p className="text-gray-600">Start learning immediately with instant access to all course materials and resources.</p>
+              <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-secondary mb-2 sm:mb-3">Instant Access</h3>
+              <p className="text-xs sm:text-sm lg:text-base text-gray-600">Start learning immediately with instant access to all course materials and resources.</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-primary-light section-padding">
+      <section className="bg-gradient-to-r from-primary to-primary-light py-8 sm:py-12 lg:py-16 px-4">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -601,19 +601,19 @@ const VideoCoursesPage = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6">
               Start Learning Today
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-4 sm:mb-6 md:mb-8">
               Choose from our range of video courses and start your self-paced learning journey. 
               Perfect for busy schedules or those who prefer to learn at their own pace.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-large bg-white text-primary hover:bg-gray-100">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center">
+              <Link href="/contact" className="btn bg-white text-primary hover:bg-gray-100 text-sm py-2.5 px-4">
                 Get Started
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <Link href="/courses" className="btn-large border-2 border-white text-white hover:bg-white hover:text-primary">
+              <Link href="/courses" className="btn border-2 border-white text-white hover:bg-white hover:text-primary text-sm py-2.5 px-4">
                 View Live Courses
               </Link>
             </div>

@@ -476,9 +476,9 @@ const CoursesPage = () => {
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Hero Section */}
       <section 
-        className="relative text-white section-padding overflow-hidden"
+        className="relative text-white py-12 sm:py-16 lg:py-20 px-4 overflow-hidden"
         style={{
-          minHeight: '70vh'
+          minHeight: '60vh'
         }}
       >
         {/* Clean & Elegant Background */}
@@ -511,19 +511,19 @@ const CoursesPage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight">
               Our <span className="text-primary">Courses</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 leading-relaxed mb-4 sm:mb-6 md:mb-8 px-2 sm:px-0">
               Discover our comprehensive range of Islamic education courses designed for all ages and levels. 
               Each course is carefully crafted to ensure optimal learning outcomes and spiritual growth.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-              <Link href="/contact" className="btn-large bg-primary hover:bg-primary-dark text-white border-0 text-sm sm:text-base">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center max-w-sm sm:max-w-md md:max-w-none mx-auto">
+              <Link href="/contact" className="btn bg-primary hover:bg-primary-dark text-white border-0 text-sm py-2.5 px-4">
                 Get Started Today
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <Link href="/quiz" className="btn-large border-2 border-white text-white hover:bg-white hover:text-secondary text-sm sm:text-base">
+              <Link href="/quiz" className="btn border-2 border-white text-white hover:bg-white hover:text-secondary text-sm py-2.5 px-4">
                 Take Course Quiz
               </Link>
             </div>
@@ -533,15 +533,15 @@ const CoursesPage = () => {
       </section>
 
       {/* Quran Courses */}
-      <section className="bg-white section-padding">
+      <section className="bg-white py-8 sm:py-12 lg:py-16 px-4">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 flex items-center justify-center flex-wrap"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 flex items-center justify-center flex-wrap"
           >
-            <BookOpen className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
+            <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-primary mr-2 sm:mr-3 lg:mr-4" />
             <span className="text-center">Quran Courses (7 courses)</span>
           </motion.h2>
           
@@ -627,15 +627,15 @@ const CoursesPage = () => {
       </section>
 
       {/* Arabic Courses */}
-      <section className="bg-accent section-padding">
+      <section className="bg-accent py-8 sm:py-12 lg:py-16 px-4">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 flex items-center justify-center flex-wrap"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 flex items-center justify-center flex-wrap"
           >
-            <Video className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
+            <Video className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-primary mr-2 sm:mr-3 lg:mr-4" />
             <span className="text-center">Arabic Language Courses</span>
           </motion.h2>
           
@@ -721,15 +721,15 @@ const CoursesPage = () => {
       </section>
 
       {/* Children Courses */}
-      <section className="bg-white section-padding">
+      <section className="bg-white py-8 sm:py-12 lg:py-16 px-4">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 flex items-center justify-center flex-wrap"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 flex items-center justify-center flex-wrap"
           >
-            <Users className="w-8 h-8 sm:w-10 sm:h-10 text-primary mr-3 sm:mr-4" />
+            <Users className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-primary mr-2 sm:mr-3 lg:mr-4" />
             <span className="text-center">AlephLam Kids</span>
           </motion.h2>
           
@@ -815,74 +815,74 @@ const CoursesPage = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="bg-accent section-padding">
+      <section className="bg-accent py-8 sm:py-12 lg:py-16 px-4">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-8 sm:mb-12 text-center"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-secondary mb-6 sm:mb-8 lg:mb-12 text-center"
           >
             Why Students Choose <span className="text-gradient">AlephLam</span>
           </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="glass-card p-6 sm:p-8 text-center relative z-10"
+              className="glass-card p-4 sm:p-6 lg:p-8 text-center relative z-10"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
-                <Users className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg">
+                <Users className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">500+</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Active Students</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary mb-1 sm:mb-2">500+</h3>
+              <p className="text-gray-600 text-xs sm:text-sm lg:text-base">Active Students</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="glass-card p-6 sm:p-8 text-center relative z-10"
+              className="glass-card p-4 sm:p-6 lg:p-8 text-center relative z-10"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
-                <Award className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg">
+                <Award className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">15+</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Years Experience</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary mb-1 sm:mb-2">15+</h3>
+              <p className="text-gray-600 text-xs sm:text-sm lg:text-base">Years Experience</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.0 }}
-              className="glass-card p-6 sm:p-8 text-center relative z-10"
+              className="glass-card p-4 sm:p-6 lg:p-8 text-center relative z-10"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
-                <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg">
+                <Globe className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">25+</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Countries Served</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary mb-1 sm:mb-2">25+</h3>
+              <p className="text-gray-600 text-xs sm:text-sm lg:text-base">Countries Served</p>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 1.1 }}
-              className="glass-card p-6 sm:p-8 text-center relative z-10"
+              className="glass-card p-4 sm:p-6 lg:p-8 text-center relative z-10"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg">
-                <Heart className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary to-primary-light rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 lg:mb-4 shadow-lg">
+                <Heart className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">98%</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Student Satisfaction</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary mb-1 sm:mb-2">98%</h3>
+              <p className="text-gray-600 text-xs sm:text-sm lg:text-base">Student Satisfaction</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-primary-light section-padding">
+      <section className="bg-gradient-to-r from-primary to-primary-light py-8 sm:py-12 lg:py-16 px-4">
         <div className="container-custom px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -890,18 +890,18 @@ const CoursesPage = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
               Ready to Start Your Learning Journey?
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-4 sm:mb-6 md:mb-8">
               Join hundreds of students who have already transformed their Quran and Arabic learning experience with AlephLam.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-              <Link href="/contact" className="btn-large bg-white text-primary hover:bg-gray-100 text-sm sm:text-base">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center max-w-sm sm:max-w-md md:max-w-none mx-auto">
+              <Link href="/contact" className="btn bg-white text-primary hover:bg-gray-100 text-sm py-2.5 px-4">
                 Enroll Now
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <Link href="/quiz" className="btn-large border-2 border-white text-white hover:bg-white hover:text-primary text-sm sm:text-base">
+              <Link href="/quiz" className="btn border-2 border-white text-white hover:bg-white hover:text-primary text-sm py-2.5 px-4">
                 Find Your Course
               </Link>
             </div>
